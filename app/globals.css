@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cinzel: 'Cinzel', serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FDF8F0;
+  color: #2D1B00;
+  font-family: var(--font-inter);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Decorative Om symbol */
+.om-watermark {
+  font-size: 8rem;
+  opacity: 0.04;
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+  font-family: serif;
+}
+
+/* Section spacing */
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+/* Headings using Cinzel */
+.heading-cinzel {
+  font-family: var(--font-cinzel);
+  letter-spacing: 0.03em;
+}
+
+/* Gold border decorative line */
+.gold-divider {
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(90deg, #E8751A, #C9A84C);
+  border-radius: 2px;
+}
+
+/* Saffron gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #E8751A 0%, #C9A84C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card base styles */
+.card-base {
+  @apply bg-white rounded-2xl p-6 border border-amber-100 shadow-card transition-all duration-300;
+}
+
+.card-base:hover {
+  @apply shadow-card-hover -translate-y-1;
+}
+
+/* Level badge colours */
+.badge-beginner {
+  @apply bg-emerald-100 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full;
+}
+.badge-intermediate {
+  @apply bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full;
+}
+.badge-advanced {
+  @apply bg-rose-100 text-rose-700 text-xs font-semibold px-3 py-1 rounded-full;
+}
+
+/* Smooth page transitions */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: pageEnter 0.5s ease-out forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FDF8F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A84C;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E8751A;
+}
+
+/* WhatsApp float button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6);
+}
+
+/* Pattern background */
+.pattern-bg {
+  background-image: radial-gradient(circle, rgba(201,168,76,0.1) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
