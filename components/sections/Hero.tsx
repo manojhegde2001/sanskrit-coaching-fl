@@ -35,7 +35,7 @@ export default function Hero() {
               </div> */}
 
               {/* Headline */}
-              <h1 className="heading-cinzel text-3xl sm:text-5xl lg:text-7xl font-bold text-maroon-900 leading-[1.1] mb-6 animate-fade-up">
+              <h1 className="heading-cinzel text-3xl sm:pt-4 sm:text-5xl lg:text-7xl font-bold text-maroon-900 leading-[1.1] mb-6 animate-fade-up">
                 Learn Sanskrit <span className="gradient-text">the Right Way</span>
               </h1>
               
