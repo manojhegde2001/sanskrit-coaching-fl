@@ -23,7 +23,7 @@ export default function Hero() {
           ॐ
         </span>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 md:pt-32 md:pb-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 md:pt-32 md:pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
             {/* Content Left */}
@@ -35,12 +35,12 @@ export default function Hero() {
               </div> */}
 
               {/* Headline */}
-              <h1 className="heading-cinzel text-3xl sm:pt-4 sm:text-5xl lg:text-7xl font-bold text-maroon-900 leading-[1.1] mb-6 animate-fade-up">
+              <h1 className="heading-cinzel text-3xl sm:text-5xl lg:text-7xl font-bold text-maroon-900 leading-[1.1] mb-2 animate-fade-up">
                 Learn Sanskrit <span className="gradient-text">the Right Way</span>
               </h1>
               
-              <div className="flex flex-wrap gap-x-4 gap-y-1 mb-8 animate-fade-up">
-                <span className="text-lg md:text-xl text-gold-600 font-medium tracking-wide border-r border-gold-200 pr-4">
+              <div className="flex flex-wrap gap-x-4 gap-y-1 mb-6 animate-fade-up">
+                <span className="text-lg md:text-xl text-gold-600 font-medium tracking-wide">
                   सनातनधारा
                 </span>
                 <span className="text-lg md:text-xl text-gold-600 font-medium tracking-wide">
@@ -48,13 +48,8 @@ export default function Hero() {
                 </span>
               </div>
 
-              {/* Subtext */}
-              <p className="text-lg md:text-xl text-maroon-700/70 leading-relaxed mb-10 max-w-2xl animate-fade-up">
-                Personalized one-on-one learning with traditional depth and modern clarity. Your child needs the best cultured education — rooted in tradition, delivered with excellence.
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-wrap gap-4 mb-12 animate-fade-up">
+              {/* CTAs - Moved up for mobile conversion */}
+              <div className="flex flex-wrap gap-3 mb-8 animate-fade-up">
                 <Button
                   variant="primary"
                   size="lg"
@@ -151,8 +146,8 @@ export default function Hero() {
         </div>
 
         {/* Mobile Instructor Image (Compact) */}
-        <div className="lg:hidden w-full px-4 mb-8 animate-fade-up">
-           <div className="relative max-w-[240px] mx-auto">
+        <div className="lg:hidden w-full px-4 mb-6 animate-fade-up">
+           <div className="relative max-w-[200px] mx-auto mb-4">
              <div className="absolute inset-0 bg-saffron-gradient opacity-10 rounded-[2.5rem] rotate-3" />
              <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-xl border-2 border-white">
                 <img
@@ -161,6 +156,14 @@ export default function Hero() {
                   className="w-full h-full object-cover"
                 />
              </div>
+           </div>
+           
+           <div className="text-center px-6">
+              <p className="heading-cinzel text-lg font-bold text-maroon-900 leading-tight mb-1">Prasanna (M.A Acharya, B.Ed)</p>
+              <p className="text-[10px] text-saffron-600 font-bold uppercase tracking-[0.2em] mb-4">Lead Instructor · 5+ Yrs Exp</p>
+              <p className="text-sm text-maroon-700/70 leading-relaxed italic">
+                &quot;The best cultured education for your child — rooted in tradition, delivered with excellence.&quot;
+              </p>
            </div>
         </div>
 

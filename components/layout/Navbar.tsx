@@ -41,14 +41,14 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
           isScrolled
-            ? 'top-4 w-[calc(100%-2rem)] max-w-7xl mx-auto bg-white/90 backdrop-blur-md shadow-2xl rounded-2xl border border-amber-100/50 py-3'
-            : 'top-0 w-full bg-transparent py-5'
+            ? 'top-4 w-[calc(100%-2rem)] max-w-7xl mx-auto bg-white/90 backdrop-blur-md shadow-2xl rounded-2xl border border-amber-100/50'
+            : 'top-0 w-full bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-16 md:h-20 flex items-center">
+          <div className="flex items-center justify-between gap-4 w-full">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
               <div className="flex items-center gap-2 md:gap-3">
