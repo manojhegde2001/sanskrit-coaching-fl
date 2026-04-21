@@ -29,10 +29,10 @@ export default function Hero() {
             {/* Content Left */}
             <div className="lg:col-span-7">
               {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 bg-saffron-50 border border-saffron-200 text-saffron-600 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 animate-fade-in">
+              {/* <div className="inline-flex items-center gap-2 bg-saffron-50 border border-saffron-200 text-saffron-600 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 animate-fade-in">
                 <FaStar className="text-saffron-400" />
                 Learn with Prasanna (Acharya, Sanskrit)
-              </div>
+              </div> */}
 
               {/* Headline */}
               <h1 className="heading-cinzel text-3xl sm:text-5xl lg:text-7xl font-bold text-maroon-900 leading-[1.1] mb-6 animate-fade-up">
