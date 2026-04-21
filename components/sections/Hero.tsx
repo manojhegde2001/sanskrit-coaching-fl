@@ -3,53 +3,117 @@
 import { useState } from 'react';
 import Button from '@/components/ui/Button';
 import Modal from '@/components/ui/Modal';
-import { FaArrowRight, FaStar, FaGlobe, FaPlay } from 'react-icons/fa';
+import { FaStar, FaGlobe } from 'react-icons/fa';
 
 export default function Hero() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <>
-      <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-cream">
-        {/* Background pattern */}
-        <div className="absolute inset-0 pattern-bg opacity-40 md:opacity-60" />
+      {/* ─── MOBILE HERO (single-column, strictly stacked) ─── */}
+      <section className="relative bg-cream overflow-hidden lg:hidden">
+        {/* Background */}
+        <div className="absolute inset-0 pattern-bg opacity-40" />
+        <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-gradient-to-bl from-saffron-100/50 to-transparent -translate-y-1/3 translate-x-1/3" />
 
-        {/* Decorative circles */}
-        <div className="absolute top-20 right-0 w-[500px] h-[500px] lg:w-[700px] lg:h-[700px] rounded-full bg-gradient-to-bl from-saffron-100/60 to-transparent -translate-y-1/4 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] rounded-full bg-gradient-to-tr from-gold-100/40 to-transparent translate-y-1/4 -translate-x-1/4" />
+        <div className="relative z-10 w-full px-5 pt-24 pb-10">
 
-        {/* Om watermark */}
-        <span className="om-watermark text-maroon-900 right-10 top-1/2 -translate-y-1/2 text-[15rem] lg:text-[25rem] select-none pointer-events-none hidden md:block">
-          ॐ
-        </span>
+          {/* 1. Heading */}
+          <h1 className="heading-cinzel text-[2rem] leading-[1.2] font-bold text-maroon-900 mb-1">
+            Learn Sanskrit
+          </h1>
+          <h1 className="heading-cinzel text-[2rem] leading-[1.2] font-bold mb-4">
+            <span className="gradient-text">the Right Way</span>
+          </h1>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 md:pt-32 md:pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            
-            {/* Content Left */}
-            <div className="lg:col-span-7">
-              {/* Eyebrow */}
-              {/* <div className="inline-flex items-center gap-2 bg-saffron-50 border border-saffron-200 text-saffron-600 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 animate-fade-in">
+          <p className="text-base text-gold-600 font-medium tracking-wide mb-6">
+            सनातनधारा &nbsp;·&nbsp; ಸನಾತನಧಾರ
+          </p>
+
+          {/* 2. CTA Buttons */}
+          <div className="flex flex-col gap-3 mb-8 w-full">
+            <Button
+              variant="primary"
+              size="lg"
+              href="https://wa.me/919482111881?text=Namaste!%20I%20am%20interested%20in%20learning%20Sanskrit%20with%20Prasanna%20Sir."
+              className="w-full rounded-2xl shadow-lg shadow-saffron-500/20 justify-center"
+            >
+              WhatsApp Now
+            </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              onClick={() => setModalOpen(true)}
+              className="w-full rounded-2xl justify-center"
+            >
+              Book Free Demo
+            </Button>
+          </div>
+
+          {/* 3. Instructor (compact) */}
+          <div className="flex items-center gap-4 mb-6 bg-white/60 rounded-2xl p-4 border border-amber-100">
+            <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-white shadow-md flex-shrink-0">
+              <img
+                src="/image.png"
+                alt="Prasanna"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <p className="heading-cinzel text-sm font-bold text-maroon-900 leading-tight">
+                Prasanna
+              </p>
+              <p className="text-[11px] text-saffron-600 font-bold uppercase tracking-widest mb-1">
+                M.A Acharya · B.Ed · 5+ Yrs
+              </p>
+              <div className="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <span key={i} className="text-amber-400 text-xs">★</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* 4. Subtext */}
+          <p className="text-sm text-maroon-700/70 leading-relaxed">
+            Your child needs the best cultured education — personalized one-on-one Sanskrit learning, rooted in tradition.
+          </p>
+
+        </div>
+      </section>
+
+      {/* ─── DESKTOP HERO (two-column, lg and above) ─── */}
+      <section className="relative min-h-screen hidden lg:flex items-center overflow-hidden bg-cream">
+        {/* Background */}
+        <div className="absolute inset-0 pattern-bg opacity-60" />
+        <div className="absolute top-20 right-0 w-[700px] h-[700px] rounded-full bg-gradient-to-bl from-saffron-100/60 to-transparent -translate-y-1/4 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-gold-100/40 to-transparent translate-y-1/4 -translate-x-1/4" />
+        <span className="om-watermark text-maroon-900 right-10 top-1/2 -translate-y-1/2 text-[25rem] select-none pointer-events-none">ॐ</span>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12 pt-32 pb-24 w-full">
+          <div className="grid grid-cols-12 gap-8 items-center">
+
+            {/* Content */}
+            <div className="col-span-7">
+              <div className="inline-flex items-center gap-2 bg-saffron-50 border border-saffron-200 text-saffron-600 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 animate-fade-in">
                 <FaStar className="text-saffron-400" />
                 Learn with Prasanna (Acharya, Sanskrit)
-              </div> */}
-
-              {/* Headline */}
-              <h1 className="heading-cinzel text-3xl sm:text-5xl lg:text-7xl font-bold text-maroon-900 leading-[1.1] mb-2 animate-fade-up">
-                Learn Sanskrit <span className="gradient-text">the Right Way</span>
-              </h1>
-              
-              <div className="flex flex-wrap gap-x-4 gap-y-1 mb-6 animate-fade-up">
-                <span className="text-lg md:text-xl text-gold-600 font-medium tracking-wide">
-                  सनातनधारा
-                </span>
-                <span className="text-lg md:text-xl text-gold-600 font-medium tracking-wide">
-                  ಸನಾತನಧಾರ
-                </span>
               </div>
 
-              {/* CTAs - Moved up for mobile conversion */}
-              <div className="flex flex-wrap gap-3 mb-8 animate-fade-up">
+              <h1 className="heading-cinzel text-5xl lg:text-7xl font-bold text-maroon-900 leading-[1.1] mb-6 animate-fade-up">
+                Learn Sanskrit <span className="gradient-text">the Right Way</span>
+              </h1>
+
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-xl text-gold-600 font-medium tracking-wide border-r border-gold-200 pr-4">सनातनधारा</span>
+                <span className="text-xl text-gold-600 font-medium tracking-wide">ಸನಾತನಧಾರ</span>
+              </div>
+
+              <p className="text-xl text-maroon-700/70 leading-relaxed mb-10 max-w-xl animate-fade-up">
+                Personalized one-on-one learning with traditional depth and modern clarity. Your child needs the best cultured education — rooted in tradition, delivered with excellence.
+              </p>
+
+              <div className="flex gap-4 mb-12 animate-fade-up">
                 <Button
                   variant="primary"
                   size="lg"
@@ -58,9 +122,9 @@ export default function Hero() {
                 >
                   WhatsApp Now
                 </Button>
-                <Button 
-                  variant="secondary" 
-                  size="lg" 
+                <Button
+                  variant="secondary"
+                  size="lg"
                   onClick={() => setModalOpen(true)}
                   className="rounded-2xl"
                 >
@@ -69,7 +133,7 @@ export default function Hero() {
               </div>
 
               {/* Social proof */}
-              <div className="flex flex-wrap items-center gap-6 animate-fade-in">
+              <div className="flex items-center gap-6 animate-fade-in">
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-2">
                     {['PN', 'AM', 'SK', 'RV'].map((initials) => (
@@ -92,9 +156,7 @@ export default function Hero() {
                     </p>
                   </div>
                 </div>
-
-                <div className="w-px h-8 bg-amber-200 hidden sm:block" />
-
+                <div className="w-px h-8 bg-amber-200" />
                 <div className="flex items-center gap-3 text-xs text-maroon-600/70 font-semibold tracking-wide uppercase">
                   <FaGlobe className="text-saffron-400 text-sm" />
                   <span>USA · UK · Canada · UAE · India</span>
@@ -102,33 +164,24 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Image Right */}
-            <div className="lg:col-span-5 relative group hidden lg:block">
-              {/* Background Shapes */}
+            {/* Instructor Image */}
+            <div className="col-span-5 relative group">
               <div className="absolute -inset-4 bg-maroon-900/5 rounded-[4rem] rotate-3 scale-105 group-hover:rotate-0 transition-transform duration-700" />
               <div className="absolute inset-0 bg-saffron-gradient opacity-10 rounded-[4rem] -rotate-3 scale-105" />
-              
-              {/* Main Image Frame */}
               <div className="relative aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl border-4 border-white animate-fade-in">
                 <img
                   src="/image.png"
                   alt="Prasanna - Sanskrit Instructor"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                
-                {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-maroon-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-
-              {/* Experience Badge */}
               <div className="absolute -right-6 bottom-12 bg-white p-6 rounded-3xl shadow-2xl border border-amber-100 animate-fade-up transform hover:scale-105 transition-transform duration-300">
                 <div className="text-center">
                   <p className="text-4xl font-bold text-maroon-900 leading-none">5+</p>
                   <p className="text-[10px] text-saffron-600 font-bold uppercase tracking-widest mt-1">Years Teaching</p>
                 </div>
               </div>
-
-              {/* Achievement Badge */}
               <div className="absolute -left-6 top-1/4 bg-white p-4 rounded-2xl shadow-xl border border-amber-100 animate-fade-up delay-200 transform hover:rotate-3 transition-transform">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-saffron-50 flex items-center justify-center text-saffron-600 text-xl shadow-inner">
@@ -145,30 +198,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Mobile Instructor Image (Compact) */}
-        <div className="lg:hidden w-full px-4 mb-6 animate-fade-up">
-           <div className="relative max-w-[200px] mx-auto mb-4">
-             <div className="absolute inset-0 bg-saffron-gradient opacity-10 rounded-[2.5rem] rotate-3" />
-             <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-xl border-2 border-white">
-                <img
-                  src="/image.png"
-                  alt="Prasanna"
-                  className="w-full h-full object-cover"
-                />
-             </div>
-           </div>
-           
-           <div className="text-center px-6">
-              <p className="heading-cinzel text-lg font-bold text-maroon-900 leading-tight mb-1">Prasanna (M.A Acharya, B.Ed)</p>
-              <p className="text-[10px] text-saffron-600 font-bold uppercase tracking-[0.2em] mb-4">Lead Instructor · 5+ Yrs Exp</p>
-              <p className="text-sm text-maroon-700/70 leading-relaxed italic">
-                &quot;The best cultured education for your child — rooted in tradition, delivered with excellence.&quot;
-              </p>
-           </div>
-        </div>
-
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-30 hidden md:flex">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-30">
           <span className="text-[10px] text-maroon-600 tracking-[0.3em] uppercase font-bold">Scroll</span>
           <div className="w-px h-10 bg-gradient-to-b from-saffron-400 to-transparent" />
         </div>
