@@ -30,19 +30,27 @@ export default function Navbar() {
     setDrawerOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (drawerOpen) {
+      document.body.classList.add('drawer-open');
+    } else {
+      document.body.classList.remove('drawer-open');
+    }
+  }, [drawerOpen]);
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-md py-3'
-            : 'bg-transparent py-5'
+            ? 'top-4 w-[calc(100%-2rem)] max-w-7xl mx-auto bg-white/90 backdrop-blur-md shadow-2xl rounded-2xl border border-amber-100/50 py-3'
+            : 'top-0 w-full bg-transparent py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="flex items-center justify-between gap-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
               <div className="flex items-center gap-2 md:gap-3">
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-maroon-900 flex items-center justify-center text-saffron-500 shadow-lg transform group-hover:rotate-6 transition-transform duration-300">
                   <FaScroll className="text-xl md:text-2xl" />
@@ -90,11 +98,11 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <ActionIcon
               variant="text"
-              className="lg:hidden text-maroon-900 -mr-2"
+              className="lg:hidden text-maroon-900 flex-shrink-0"
               onClick={() => setDrawerOpen(true)}
               aria-label="Open menu"
             >
-              <FaBars className="w-6 h-6" />
+              <FaBars className="w-8 h-8" />
             </ActionIcon>
           </div>
         </div>

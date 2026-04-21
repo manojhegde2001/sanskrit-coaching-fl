@@ -8,6 +8,7 @@ import {
   FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, 
   FaPaperPlane, FaUser, FaAt, FaCommentAlt, FaScroll 
 } from 'react-icons/fa';
+import { Input, Textarea } from 'rizzui';
 
 export default function ContactPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -105,53 +106,35 @@ export default function ContactPage() {
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-[10px] font-bold text-maroon-900 uppercase tracking-widest mb-2 px-1">Full Name</label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-saffron-400">
-                          <FaUser className="text-xs" />
-                        </div>
-                        <input 
-                          type="text" 
-                          id="name" 
-                          required 
-                          placeholder="Your Name"
-                          className="w-full pl-11 pr-4 py-4 bg-amber-50 rounded-2xl border border-amber-100 focus:outline-none focus:ring-2 focus:ring-saffron-400 focus:bg-white transition-all text-maroon-900 placeholder:text-maroon-300"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-[10px] font-bold text-maroon-900 uppercase tracking-widest mb-2 px-1">Email Address</label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-saffron-400">
-                          <FaAt className="text-xs" />
-                        </div>
-                        <input 
-                          type="email" 
-                          id="email" 
-                          required 
-                          placeholder="example@mail.com"
-                          className="w-full pl-11 pr-4 py-4 bg-amber-50 rounded-2xl border border-amber-100 focus:outline-none focus:ring-2 focus:ring-saffron-400 focus:bg-white transition-all text-maroon-900 placeholder:text-maroon-300"
-                        />
-                      </div>
-                    </div>
+                    <Input
+                      label="Full Name"
+                      placeholder="Your Name"
+                      prefix={<FaUser className="text-saffron-400" />}
+                      className="rizzui-input-custom"
+                      inputClassName="bg-amber-50 border-amber-100 rounded-2xl focus:ring-saffron-400 py-4"
+                      labelClassName="text-[10px] font-bold text-maroon-900 uppercase tracking-widest mb-2"
+                      required
+                    />
+                    <Input
+                      label="Email Address"
+                      type="email"
+                      placeholder="example@mail.com"
+                      prefix={<FaAt className="text-saffron-400" />}
+                      className="rizzui-input-custom"
+                      inputClassName="bg-amber-50 border-amber-100 rounded-2xl focus:ring-saffron-400 py-4"
+                      labelClassName="text-[10px] font-bold text-maroon-900 uppercase tracking-widest mb-2"
+                      required
+                    />
                   </div>
 
-                  <div>
-                    <label htmlFor="message" className="block text-[10px] font-bold text-maroon-900 uppercase tracking-widest mb-2 px-1">Your Questions</label>
-                    <div className="relative">
-                      <div className="absolute top-5 left-4 flex items-center pointer-events-none text-saffron-400">
-                        <FaCommentAlt className="text-xs" />
-                      </div>
-                      <textarea 
-                        id="message" 
-                        rows={5} 
-                        required 
-                        placeholder="I want to learn Sanskrit for..."
-                        className="w-full pl-11 pr-4 py-4 bg-amber-50 rounded-2xl border border-amber-100 focus:outline-none focus:ring-2 focus:ring-saffron-400 focus:bg-white transition-all text-maroon-900 placeholder:text-maroon-300 resize-none"
-                      />
-                    </div>
-                  </div>
+                  <Textarea
+                    label="Your Questions"
+                    placeholder="I want to learn Sanskrit for..."
+                    className="rizzui-input-custom"
+                    textareaClassName="bg-amber-50 border-amber-100 rounded-2xl focus:ring-saffron-400 py-4 resize-none min-h-[120px]"
+                    labelClassName="text-[10px] font-bold text-maroon-900 uppercase tracking-widest mb-2"
+                    required
+                  />
 
                   <Button 
                     type="submit" 

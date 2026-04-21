@@ -35,9 +35,17 @@ body {
   font-family: serif;
 }
 
-/* Section spacing - Reduced for better flow */
+/* Section spacing - Refined for mobile-first */
 .section-padding {
-  @apply py-8 md:py-16 lg:py-20;
+  @apply py-10 md:py-16 lg:py-24;
+}
+
+/* Hide floating elements when drawer is open */
+.drawer-open .whatsapp-float,
+.drawer-open .scroll-to-top {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
 }
 
 /* Ensure no excessive white space at top of pages */
@@ -134,6 +142,39 @@ body {
 .whatsapp-float:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6);
+}
+
+/* Scroll to top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  z-index: 998;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 1px border-amber-50;
+  color: #2D1B00;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background-color: #FDF8F0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 /* Pattern background */

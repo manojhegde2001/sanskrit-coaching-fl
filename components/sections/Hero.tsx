@@ -23,7 +23,7 @@ export default function Hero() {
           ॐ
         </span>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 md:pt-32 md:pb-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 md:pt-32 md:pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
             {/* Content Left */}
@@ -35,7 +35,7 @@ export default function Hero() {
               </div>
 
               {/* Headline */}
-              <h1 className="heading-cinzel text-4xl sm:text-5xl lg:text-7xl font-bold text-maroon-900 leading-[1.1] mb-6 animate-fade-up">
+              <h1 className="heading-cinzel text-3xl sm:text-5xl lg:text-7xl font-bold text-maroon-900 leading-[1.1] mb-6 animate-fade-up">
                 Learn Sanskrit <span className="gradient-text">the Right Way</span>
               </h1>
               
@@ -150,9 +150,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Mobile Instructor Image (Shown only on mobile, below text or as a smaller clip) */}
-        <div className="lg:hidden w-full px-4 mb-12 animate-fade-up">
-           <div className="relative max-w-xs mx-auto">
+        {/* Mobile Instructor Image (Compact) */}
+        <div className="lg:hidden w-full px-4 mb-8 animate-fade-up">
+           <div className="relative max-w-[240px] mx-auto">
              <div className="absolute inset-0 bg-saffron-gradient opacity-10 rounded-[2.5rem] rotate-3" />
              <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-xl border-2 border-white">
                 <img
