@@ -10,74 +10,69 @@ export default function Hero() {
 
   return (
     <>
-      {/* ─── MOBILE HERO (single-column, strictly stacked) ─── */}
+      {/* ─── MOBILE HERO ─── */}
       <section className="relative bg-cream overflow-hidden lg:hidden">
-        {/* Background */}
-        <div className="absolute inset-0 pattern-bg opacity-40" />
-        <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-gradient-to-bl from-saffron-100/50 to-transparent -translate-y-1/3 translate-x-1/3" />
+        {/* Decorative blobs */}
+        <div className="absolute inset-0 pattern-bg opacity-30" />
+        <div className="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-saffron-100/40" />
+        <div className="absolute bottom-0 -left-10 w-40 h-40 rounded-full bg-amber-100/30" />
 
-        <div className="relative z-10 w-full px-5 pt-24 pb-10">
+        <div className="relative z-10 w-full px-5 pt-20 pb-10 flex flex-col">
 
-          {/* 1. Heading */}
-          <h1 className="heading-cinzel text-[2rem] leading-[1.2] font-bold text-maroon-900 mb-1">
-            Learn Sanskrit
-          </h1>
-          <h1 className="heading-cinzel text-[2rem] leading-[1.2] font-bold mb-4">
+          {/* 1. Label */}
+          <span className="inline-flex items-center gap-1.5 self-start bg-saffron-50 border border-saffron-200 text-saffron-600 text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full mb-5">
+            <FaStar className="text-saffron-400 text-[8px]" />
+            Sanskrit · Live · 1-on-1
+          </span>
+
+          {/* 2. Heading */}
+          <h1 className="heading-cinzel text-3xl font-semibold text-maroon-900 leading-tight mb-3">
+            Learn Sanskrit<br />
             <span className="gradient-text">the Right Way</span>
           </h1>
 
-          <p className="text-base text-gold-600 font-medium tracking-wide mb-6">
-            सनातनधारा &nbsp;·&nbsp; ಸನಾತನಧಾರ
+          {/* 3. Subtext */}
+          <p className="text-sm text-maroon-700/65 leading-relaxed mb-6 max-w-xs">
+            Personalized 1-on-1 coaching with Prasanna Sir — rooted in tradition, built for you.
           </p>
 
-          {/* 2. CTA Buttons */}
-          <div className="flex flex-col gap-3 mb-8 w-full">
+          {/* 4. CTAs */}
+          <div className="flex flex-col gap-2.5 w-full mb-7">
             <Button
               variant="primary"
               size="lg"
               href="https://wa.me/919482111881?text=Namaste!%20I%20am%20interested%20in%20learning%20Sanskrit%20with%20Prasanna%20Sir."
-              className="w-full rounded-2xl shadow-lg shadow-saffron-500/20 justify-center"
+              className="w-full rounded-xl justify-center shadow-md shadow-saffron-500/20"
             >
               WhatsApp Now
             </Button>
             <Button
               variant="secondary"
-              size="lg"
+              size="md"
               onClick={() => setModalOpen(true)}
-              className="w-full rounded-2xl justify-center"
+              className="w-full rounded-xl justify-center"
             >
               Book Free Demo
             </Button>
           </div>
 
-          {/* 3. Instructor (compact) */}
-          <div className="flex items-center gap-4 mb-6 bg-white/60 rounded-2xl p-4 border border-amber-100">
-            <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-white shadow-md flex-shrink-0">
-              <img
-                src="/image.png"
-                alt="Prasanna"
-                className="w-full h-full object-cover"
-              />
+          {/* 5. Instructor strip */}
+          <div className="flex items-center gap-3 border-l-2 border-saffron-400 pl-4">
+            <div className="w-11 h-11 rounded-lg overflow-hidden border border-white shadow flex-shrink-0">
+              <img src="/image.png" alt="Prasanna" className="w-full h-full object-cover" />
             </div>
-            <div>
-              <p className="heading-cinzel text-sm font-bold text-maroon-900 leading-tight">
-                Prasanna
-              </p>
-              <p className="text-[11px] text-saffron-600 font-bold uppercase tracking-widest mb-1">
+            <div className="min-w-0">
+              <p className="heading-cinzel text-sm font-bold text-maroon-900 truncate">Prasanna</p>
+              <p className="text-[10px] text-saffron-600 font-semibold uppercase tracking-wider truncate">
                 M.A Acharya · B.Ed · 5+ Yrs
               </p>
-              <div className="flex gap-0.5">
+              <div className="flex gap-0.5 mt-0.5">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i} className="text-amber-400 text-xs">★</span>
+                  <span key={i} className="text-amber-400 text-[10px]">★</span>
                 ))}
               </div>
             </div>
           </div>
-
-          {/* 4. Subtext */}
-          <p className="text-sm text-maroon-700/70 leading-relaxed">
-            Your child needs the best cultured education — personalized one-on-one Sanskrit learning, rooted in tradition.
-          </p>
 
         </div>
       </section>
