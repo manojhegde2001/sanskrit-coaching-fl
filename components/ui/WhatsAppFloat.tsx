@@ -4,16 +4,15 @@ import { FaWhatsapp } from 'react-icons/fa';
 export default function WhatsAppFloat() {
   return (
     <a
-      href="https://wa.me/919999999999?text=Hi%2C%20I%20am%20interested%20in%20learning%20Sanskrit.%20Please%20share%20more%20details."
+      href="https://wa.me/919482111881?text=Namaste!%20I%20am%20interested%20in%20learning%20Sanskrit%20with%20Prasanna%20Sir.%20Can%20you%20please%20share%20more%20details?"
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-float group"
-      aria-label="Chat on WhatsApp"
-      title="Chat with us on WhatsApp"
+      aria-label="Contact on WhatsApp"
     >
-      <FaWhatsapp className="text-white text-3xl group-hover:scale-110 transition-transform" />
-      <span className="absolute right-16 bg-maroon-900 text-white text-xs px-3 py-1.5 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg pointer-events-none">
-        Chat on WhatsApp
+      <FaWhatsapp className="text-3xl md:text-4xl text-white group-hover:scale-110 transition-transform" />
+      <span className="absolute right-full mr-3 bg-white text-maroon-900 px-3 py-1.5 rounded-xl text-xs font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-amber-50">
+        Chat with Prasanna Sir
       </span>
     </a>
   );

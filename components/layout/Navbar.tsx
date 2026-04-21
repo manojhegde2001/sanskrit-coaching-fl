@@ -3,14 +3,14 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { FaBars, FaTimes, FaOm } from 'react-icons/fa';
+import { FaBars, FaTimes, FaScroll, FaPhone, FaWhatsapp } from 'react-icons/fa';
+import { Drawer, ActionIcon } from 'rizzui';
 import Button from '@/components/ui/Button';
 
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/one-on-one', label: '1-on-1 Learning' },
-  { href: '/courses', label: 'Courses' },
+  { href: '/courses', label: 'Programs' },
   { href: '/how-it-works', label: 'How It Works' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -18,7 +18,7 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -26,9 +26,8 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu when route changes
   useEffect(() => {
-    setMenuOpen(false);
+    setDrawerOpen(false);
   }, [pathname]);
 
   return (
@@ -43,17 +42,19 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <span className="text-saffron-500 text-2xl transition-transform group-hover:rotate-[20deg] duration-300">
-                <FaOm />
-              </span>
-              <div>
-                <span className="heading-cinzel text-xl font-bold text-maroon-900 leading-none block">
-                  Sanskrit<span className="text-saffron-500">Guru</span>
-                </span>
-                <span className="text-xs text-gold-600 font-medium tracking-widest uppercase">
-                  Personalized Coaching
-                </span>
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="flex items-center gap-2 md:gap-3">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-maroon-900 flex items-center justify-center text-saffron-500 shadow-lg transform group-hover:rotate-6 transition-transform duration-300">
+                  <FaScroll className="text-xl md:text-2xl" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="heading-cinzel text-xl md:text-2xl font-bold text-maroon-900 tracking-tight leading-tight">
+                    Sanatanadhara
+                  </span>
+                  <span className="text-[10px] md:text-xs font-semibold text-saffron-600 tracking-[0.2em] uppercase">
+                    सनातनधारा
+                  </span>
+                </div>
               </div>
             </Link>
 
@@ -87,64 +88,81 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden text-maroon-900 text-2xl p-2 rounded-lg hover:bg-amber-50 transition-colors"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
+            <ActionIcon
+              variant="text"
+              className="lg:hidden text-maroon-900 -mr-2"
+              onClick={() => setDrawerOpen(true)}
+              aria-label="Open menu"
             >
-              {menuOpen ? <FaTimes /> : <FaBars />}
-            </button>
+              <FaBars className="w-6 h-6" />
+            </ActionIcon>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu */}
-      <div
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
-          menuOpen ? 'visible opacity-100' : 'invisible opacity-0'
-        }`}
+      {/* RizzUI Drawer for Mobile Menu */}
+      <Drawer
+        isOpen={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        placement="right"
+        className="z-[100]"
       >
-        {/* Backdrop */}
-        <div
-          className="absolute inset-0 bg-maroon-900/60 backdrop-blur-sm"
-          onClick={() => setMenuOpen(false)}
-        />
-        {/* Panel */}
-        <div
-          className={`absolute top-0 right-0 h-full w-72 bg-white shadow-2xl transform transition-transform duration-300 ${
-            menuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-        >
-          <div className="p-6 pt-20">
-            <div className="flex items-center gap-2 mb-8">
-              <FaOm className="text-saffron-500 text-2xl" />
+        <div className="p-6 h-full flex flex-col bg-cream">
+          <div className="flex items-center justify-between mb-10">
+            <div className="flex items-center gap-2">
+              <FaScroll className="text-saffron-500 text-2xl" />
               <span className="heading-cinzel text-lg font-bold text-maroon-900">
-                Sanskrit<span className="text-saffron-500">Guru</span>
+                Sanatanadhara
               </span>
             </div>
-            <nav className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                    pathname === link.href
-                      ? 'bg-saffron-50 text-saffron-600 font-semibold'
-                      : 'text-maroon-800 hover:bg-amber-50 hover:text-saffron-500'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-            <div className="mt-8">
-              <Button href="/contact" variant="primary" fullWidth>
-                Book Free Session
-              </Button>
+            <ActionIcon
+              variant="text"
+              onClick={() => setDrawerOpen(false)}
+              className="text-maroon-900"
+            >
+              <FaTimes className="w-6 h-6" />
+            </ActionIcon>
+          </div>
+          
+          <nav className="flex flex-col gap-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-5 py-4 rounded-2xl text-base font-semibold transition-all ${
+                  pathname === link.href
+                    ? 'bg-maroon-900 text-white shadow-xl'
+                    : 'text-maroon-800 hover:bg-amber-50'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          
+          <div className="mt-auto pt-10">
+            <p className="text-[10px] text-maroon-600/50 uppercase tracking-[0.2em] mb-4 font-bold">Connect With Prasanna</p>
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center gap-3 text-maroon-900 bg-white/50 p-4 rounded-2xl border border-amber-50">
+                <div className="w-10 h-10 rounded-xl bg-saffron-50 flex items-center justify-center text-saffron-600 shadow-sm">
+                  <FaPhone className="text-sm" />
+                </div>
+                <span className="text-base font-bold tracking-tight">8073362748</span>
+              </div>
             </div>
+            <Button
+              href="https://wa.me/919482111881"
+              variant="primary"
+              fullWidth
+              size="lg"
+              className="rounded-2xl shadow-xl"
+            >
+              <FaWhatsapp className="text-lg" />
+              WhatsApp Now
+            </Button>
           </div>
         </div>
-      </div>
+      </Drawer>
     </>
   );
 }

@@ -24,11 +24,11 @@ export default function CTABanner() {
             Begin Your Journey Today
           </p>
           <h2 className="heading-cinzel text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
-            Your First Sanskrit Lesson is{' '}
+            Your First Demo Session is{' '}
             <span className="text-amber-200">Free</span>
           </h2>
           <p className="text-white/80 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            Book a free 30-minute intro session with Pt. Ravi Sharma. No commitment, no pressure — just an open conversation about your learning goals.
+            Experience our personalized teaching with a free 15-minute demo session. No commitment — just an introductory session to finalize your path.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
@@ -46,7 +46,7 @@ export default function CTABanner() {
               href="/courses"
               className="text-white hover:bg-white/10"
             >
-              Browse Courses
+              Browse Programs
             </Button>
           </div>
         </div>

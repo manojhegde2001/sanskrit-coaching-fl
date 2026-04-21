@@ -35,9 +35,14 @@ body {
   font-family: serif;
 }
 
-/* Section spacing */
+/* Section spacing - Reduced for better flow */
 .section-padding {
-  @apply py-16 md:py-24;
+  @apply py-8 md:py-16 lg:py-20;
+}
+
+/* Ensure no excessive white space at top of pages */
+.page-container {
+  @apply pt-20 md:pt-24 lg:pt-28;
 }
 
 /* Headings using Cinzel */
@@ -64,11 +69,7 @@ body {
 
 /* Card base styles */
 .card-base {
-  @apply bg-white rounded-2xl p-6 border border-amber-100 shadow-card transition-all duration-300;
-}
-
-.card-base:hover {
-  @apply shadow-card-hover -translate-y-1;
+  @apply bg-white rounded-[2rem] p-6 md:p-8 border border-amber-100 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-saffron-500/10 hover:-translate-y-2;
 }
 
 /* Level badge colours */

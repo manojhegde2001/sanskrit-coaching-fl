@@ -33,10 +33,10 @@ export default function Testimonials() {
         {/* Trust badges */}
         <div className="flex flex-wrap justify-center gap-6 mt-12">
           {[
-            { value: '200+', label: 'Students Taught' },
-            { value: '15+', label: 'Countries Reached' },
+            { value: '100+', label: 'Sessions Conducted' },
             { value: '5★', label: 'Average Rating' },
-            { value: '8+', label: 'Years of Teaching' },
+            { value: '5+', label: 'Years of Teaching' },
+            { value: '1:1', label: 'Personalized Focus' },
           ].map((stat, i) => (
             <div
               key={i}

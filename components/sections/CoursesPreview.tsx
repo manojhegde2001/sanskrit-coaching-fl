@@ -19,40 +19,49 @@ export default function CoursesPreview() {
 
   return (
     <>
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row lg:items-end gap-4 mb-12">
-            <div className="flex-1">
+      <section className="section-padding bg-white relative overflow-hidden">
+        <div className="absolute right-0 top-0 w-96 h-96 bg-maroon-900/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+            <div className="max-w-2xl">
               <SectionHeader
-                eyebrow="Also Available"
-                title="Structured"
-                highlight="Courses"
-                subtitle="Join a batch and learn alongside fellow students with our curated course curriculum."
+                eyebrow="Our Offerings"
+                title="Learning"
+                highlight="Programs"
+                subtitle="Explore our flexible one-on-one sessions tailored for school students and adults alike."
                 align="left"
               />
             </div>
-            <div className="shrink-0 mb-12">
-              <Button variant="secondary" href="/courses" size="md">
-                View All Courses <FaArrowRight className="text-xs" />
+            <div className="shrink-0">
+              <Button variant="secondary" href="/courses" size="lg" className="rounded-2xl">
+                View All Courses <FaArrowRight className="text-xs ml-2" />
               </Button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {courses.map((course) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {courses.slice(0, 3).map((course) => (
               <CourseCard key={course.id} course={course} onEnroll={handleEnroll} />
             ))}
           </div>
 
-          <div className="mt-10 p-6 bg-amber-50 rounded-2xl border border-amber-100 text-center">
-            <p className="text-sm text-maroon-700/70">
-              🌟 <strong className="text-maroon-900">Prefer a personalized experience?</strong>{' '}
-              Try our{' '}
-              <a href="/one-on-one" className="text-saffron-600 font-semibold hover:underline">
-                One-on-One coaching
-              </a>{' '}
-              — fully customized to your goals and schedule.
-            </p>
+          <div className="mt-16 p-8 bg-maroon-900 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+            <div className="absolute left-0 top-0 w-full h-full pattern-bg opacity-10" />
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+              <div>
+                <h4 className="heading-cinzel text-2xl font-bold text-white mb-2">Not sure where to start?</h4>
+                <p className="text-amber-200/60 text-sm">Prasanna Sir offers a 15-minute free demo call to discuss your goals.</p>
+              </div>
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={() => setModalOpen(true)}
+                className="rounded-2xl border-white/20 hover:bg-white/10"
+              >
+                Book Free Demo Session
+              </Button>
+            </div>
           </div>
         </div>
       </section>

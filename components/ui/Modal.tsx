@@ -1,14 +1,13 @@
-'use client';
-
-import { ReactNode, useEffect } from 'react';
-import { FaTimes, FaCheckCircle, FaOm } from 'react-icons/fa';
+import React from 'react';
+import { Modal as RizzModal, ActionIcon } from 'rizzui';
+import { FaTimes, FaCheckCircle, FaScroll } from 'react-icons/fa';
 import Button from './Button';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
-  children?: ReactNode;
+  children?: React.ReactNode;
   type?: 'booking' | 'enroll' | 'generic';
   courseName?: string;
 }
@@ -21,99 +20,100 @@ export default function Modal({
   type = 'generic',
   courseName,
 }: ModalProps) {
-  // Prevent scroll when modal is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-maroon-900/70 backdrop-blur-sm"
-        onClick={onClose}
-      />
-
-      {/* Modal */}
-      <div className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 animate-fade-up">
+    <RizzModal
+      isOpen={isOpen}
+      onClose={onClose}
+      containerClassName="z-[110]"
+      overlayClassName="backdrop-blur-sm bg-maroon-900/60"
+    >
+      <div className="relative bg-white rounded-[2rem] shadow-2xl max-w-lg w-full p-8 md:p-10">
         {/* Close button */}
-        <button
+        <ActionIcon
+          size="sm"
+          variant="text"
           onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-maroon-600 hover:bg-saffron-50 hover:text-saffron-500 transition-colors"
+          className="absolute top-6 right-6 text-maroon-900 hover:rotate-90 transition-transform duration-300"
           aria-label="Close modal"
         >
-          <FaTimes className="text-sm" />
-        </button>
+          <FaTimes className="w-5 h-5" />
+        </ActionIcon>
 
         {type === 'booking' && (
           <div className="text-center">
-            <div className="w-20 h-20 rounded-full bg-saffron-50 border-4 border-saffron-100 flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 rounded-3xl bg-maroon-900 flex items-center justify-center mx-auto mb-8 shadow-xl rotate-3">
               <FaCheckCircle className="text-saffron-500 text-4xl" />
             </div>
-            <FaOm className="text-gold-400 text-2xl mx-auto mb-3" />
-            <h2 className="heading-cinzel text-2xl font-bold text-maroon-900 mb-3">
-              Session Requested!
+            <FaScroll className="text-maroon-900/20 text-3xl mx-auto mb-4" />
+            <h2 className="heading-cinzel text-3xl font-bold text-maroon-900 mb-4">
+              Registration Received!
             </h2>
-            <p className="text-maroon-700/70 text-sm leading-relaxed mb-6">
-              Thank you for your interest! Our team will contact you within <strong>24 hours</strong> on WhatsApp or email to confirm your free intro session.
+            <p className="text-maroon-700/70 text-base leading-relaxed mb-8">
+              Namaste! We have received your request for a free demo session with **Prasanna Sir**. We will reach out to you on WhatsApp within 24 hours.
             </p>
-            <div className="bg-amber-50 rounded-2xl p-4 mb-6 border border-amber-100">
-              <p className="text-xs text-maroon-600/70 mb-1">What happens next?</p>
-              <ul className="text-sm text-maroon-700 space-y-1 text-left">
-                <li>✅ We review your details</li>
-                <li>✅ Schedule a 30-min free call</li>
-                <li>✅ Discuss your learning goals</li>
-                <li>✅ Propose a personalized plan</li>
+            <div className="bg-amber-50 rounded-[1.5rem] p-6 mb-8 border border-amber-100 text-left">
+              <p className="text-xs text-maroon-600 font-bold uppercase tracking-widest mb-3">Next Steps</p>
+              <ul className="text-sm text-maroon-800 space-y-2">
+                <li className="flex items-center gap-3">
+                  <span className="w-5 h-5 rounded-full bg-saffron-500 text-white flex items-center justify-center text-[10px] font-bold">1</span>
+                  WhatsApp confirmation
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-5 h-5 rounded-full bg-saffron-500 text-white flex items-center justify-center text-[10px] font-bold">2</span>
+                  30-min Intro Call
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-5 h-5 rounded-full bg-saffron-500 text-white flex items-center justify-center text-[10px] font-bold">3</span>
+                  Start Learning
+                </li>
               </ul>
             </div>
-            <Button variant="primary" fullWidth onClick={onClose}>
-              Got it, Thank you!
+            <Button variant="primary" fullWidth size="lg" onClick={onClose}>
+              Dhanyavadah
             </Button>
           </div>
         )}
 
         {type === 'enroll' && (
           <div className="text-center">
-            <div className="w-20 h-20 rounded-full bg-emerald-50 border-4 border-emerald-100 flex items-center justify-center mx-auto mb-6">
-              <FaCheckCircle className="text-emerald-500 text-4xl" />
+            <div className="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center mx-auto mb-6">
+              <FaCheckCircle className="text-emerald-500 text-3xl" />
             </div>
             <h2 className="heading-cinzel text-2xl font-bold text-maroon-900 mb-2">
-              Enrollment Interest!
+              Interested in Enrollment!
             </h2>
             {courseName && (
-              <p className="text-saffron-600 font-semibold text-sm mb-3">
-                {courseName}
-              </p>
+              <div className="px-4 py-2 bg-saffron-50 rounded-lg inline-block mb-4">
+                <p className="text-saffron-700 font-bold text-sm">
+                  {courseName}
+                </p>
+              </div>
             )}
-            <p className="text-maroon-700/70 text-sm leading-relaxed mb-6">
-              We&apos;ve noted your interest in this course. Our team will reach out within <strong>24 hours</strong> to share batch details, fee structure, and enrollment steps.
+            <p className="text-maroon-700/70 text-sm leading-relaxed mb-8">
+              We&apos;ve noted your interest. Prasanna Sir will contact you shortly to discuss the schedule and curriculum details.
             </p>
-            <Button variant="primary" fullWidth onClick={onClose}>
-              Sounds Great!
+            <Button
+              href={`https://wa.me/919482111881?text=Namaste!%20I%20am%20interested%20in%20the%20${courseName?.replace(/\s/g, '%20')}%20course.`}
+              variant="primary" 
+              fullWidth 
+              size="lg"
+            >
+              Chat on WhatsApp
             </Button>
           </div>
         )}
 
         {type === 'generic' && (
-          <>
+          <div className="pt-4">
             {title && (
-              <h2 className="heading-cinzel text-xl font-bold text-maroon-900 mb-4">
+              <h2 className="heading-cinzel text-2xl font-bold text-maroon-900 mb-6">
                 {title}
               </h2>
             )}
             {children}
-          </>
+          </div>
         )}
       </div>
-    </div>
+    </RizzModal>
   );
 }

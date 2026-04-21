@@ -65,7 +65,7 @@ export function CourseCard({ course, onEnroll }: CourseCardProps) {
       {/* Price & CTA */}
       <div className="flex items-center justify-between pt-4 border-t border-amber-100">
         <div>
-          <p className="text-xs text-maroon-600/60 mb-0.5">Starting from</p>
+          <p className="text-xs text-maroon-600/60 mb-0.5">Fees & Schedule</p>
           <p className="text-lg font-bold text-saffron-600">{course.price}</p>
         </div>
         <Button variant="primary" size="sm" onClick={() => onEnroll(course)}>

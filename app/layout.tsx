@@ -5,12 +5,18 @@ import Footer from '@/components/layout/Footer';
 import WhatsAppFloat from '@/components/ui/WhatsAppFloat';
 
 export const metadata: Metadata = {
-  title: {
-    default: 'SanskritGuru — Personalized Sanskrit Coaching Online',
-    template: '%s | SanskritGuru',
-  },
+  title: 'Sanatanadhara - Personalized Sanskrit Learning',
   description:
-    'Expert Sanskrit coaching for international students. One-on-one personalized learning and structured courses for Bhagavad Gita, Vedas, and Sanskrit grammar. Available worldwide via Zoom.',
+    'Your child needs the best cultured education. Personalized Sanskrit learning with Prasanna (Acharya, Sanskrit). Online coaching for CBSE, State Board, and more.',
+  icons: {
+    icon: '/icon.svg',
+  },
+  openGraph: {
+    title: 'Sanatana Dhara — Personalized Sanskrit Coaching Online',
+    description: 'One-on-one personalized Sanskrit learning designed around your goals. Your child needs the best cultured education.',
+    type: 'website',
+    images: [{ url: '/image.png' }],
+  },
   keywords: [
     'learn Sanskrit online',
     'Sanskrit coaching',
@@ -20,11 +26,6 @@ export const metadata: Metadata = {
     'Sanskrit teacher',
     'online Sanskrit classes',
   ],
-  openGraph: {
-    title: 'SanskritGuru — Personalized Sanskrit Coaching Online',
-    description: 'Expert Sanskrit coaching for international students. One-on-one personalized learning designed around your goals.',
-    type: 'website',
-  },
 };
 
 export default function RootLayout({
