@@ -13,9 +13,12 @@ const footerLinks = {
     { href: '/contact', label: 'Contact' },
   ],
   Programs: [
-    { href: '/courses', label: 'Personalized Sanskrit (1:1)' },
-    { href: '/courses', label: 'Academic Support (CBSE / State Board)' },
-    { href: '/courses', label: 'Shlokas & Scriptures Learning' },
+    { href: '/courses', label: 'Basic Sanskrit Learning' },
+    { href: '/courses', label: 'Advanced Sanskrit (Full Grammar)' },
+    { href: '/courses', label: 'Basic Sanskrit Shlokas' },
+    { href: '/courses', label: 'CBSE Sanskrit Class' },
+    { href: '/courses', label: 'State Board Sanskrit Class' },
+    { href: '/courses', label: 'CBSE Kannada Class' },
   ],
 };
 

@@ -6,26 +6,30 @@ import WhatsAppFloat from '@/components/ui/WhatsAppFloat';
 import ScrollToTop from '@/components/ui/ScrollToTop';
 
 export const metadata: Metadata = {
-  title: 'Sanatanadhara - Personalized Sanskrit Learning',
+  title: 'Sanatanadhara — Sanskrit & Kannada Classes Online',
   description:
-    'Your child needs the best cultured education. Personalized Sanskrit learning with Prasanna (Acharya, Sanskrit). Online coaching for CBSE, State Board, and more.',
+    'Your child needs the best cultured education. Personalized one-on-one Sanskrit and Kannada coaching online — CBSE, State Board, Shlokas, Basic & Advanced Grammar. Grade 5–12 and Adults.',
   icons: {
     icon: '/icon.svg',
   },
   openGraph: {
-    title: 'Sanatana Dhara — Personalized Sanskrit Coaching Online',
-    description: 'One-on-one personalized Sanskrit learning designed around your goals. Your child needs the best cultured education.',
+    title: 'Sanatanadhara — Sanskrit & Kannada Classes Online',
+    description: 'Your child needs the best cultured education. Personalized Sanskrit coaching by an M.A (Acharya), B.Ed qualified teacher with 5+ years of experience.',
     type: 'website',
     images: [{ url: '/image.png' }],
   },
   keywords: [
-    'learn Sanskrit online',
+    'Sanskrit classes online',
     'Sanskrit coaching',
-    'Bhagavad Gita course',
-    'Sanskrit for NRIs',
+    'CBSE Sanskrit',
+    'State Board Sanskrit',
+    'Kannada classes',
+    'Bhagavad Gita shlokas',
+    'Sanskrit for beginners',
+    'Sanskrit for adults',
     'personalized Sanskrit learning',
-    'Sanskrit teacher',
-    'online Sanskrit classes',
+    'Sanskrit teacher online',
+    'Sanatanadhara',
   ],
 };
 
