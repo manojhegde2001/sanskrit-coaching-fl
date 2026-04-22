@@ -143,15 +143,15 @@ export default function Hero() {
               </div>
 
               {/* Why Choose Us */}
-              <div className="bg-white/60 backdrop-blur-sm rounded-[2.5rem] border border-amber-100 p-8 shadow-sm animate-fade-in inline-block">
+              <div className="bg-white/60 backdrop-blur-sm rounded-[2.5rem] border border-amber-100 p-8 shadow-sm animate-fade-in max-w-2xl">
                 <p className="text-[10px] font-bold text-maroon-600/60 uppercase tracking-widest mb-5">
                   Why Sanatanadhara?
                 </p>
-                <ul className="grid grid-cols-2 gap-x-10 gap-y-4">
+                <ul className="grid grid-cols-2 gap-x-8 gap-y-4">
                   {highlights.map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-sm text-maroon-800 font-bold whitespace-nowrap">
-                      <FaCheckCircle className="text-saffron-500 shrink-0" />
-                      {item}
+                    <li key={item} className="flex items-start gap-3 text-sm text-maroon-800 font-bold leading-tight">
+                      <FaCheckCircle className="text-saffron-500 shrink-0 mt-0.5" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -172,14 +172,14 @@ export default function Hero() {
               </div>
               
               {/* Floating badges */}
-              <div className="absolute -right-8 bottom-16 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-amber-100 animate-fade-up transform hover:scale-110 transition-transform duration-500">
+              <div className="absolute -right-4 bottom-16 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-amber-100 animate-fade-up transform hover:scale-110 transition-transform duration-500">
                 <div className="text-center">
                   <p className="text-4xl font-bold text-maroon-900 leading-none">5+</p>
                   <p className="text-[10px] text-saffron-600 font-bold uppercase tracking-widest mt-2">Years Exp.</p>
                 </div>
               </div>
               
-              <div className="absolute -left-10 top-1/4 bg-white p-5 rounded-3xl shadow-2xl border border-amber-100 animate-fade-up delay-200 transform hover:-rotate-6 transition-transform">
+              <div className="absolute -left-6 top-1/4 bg-white p-5 rounded-3xl shadow-2xl border border-amber-100 animate-fade-up delay-200 transform hover:-rotate-6 transition-transform">
                 <div className="text-center">
                   <p className="heading-cinzel text-base font-bold text-maroon-900">M.A (Acharya)</p>
                   <p className="text-[9px] text-saffron-600 uppercase tracking-widest font-bold mt-1">B.Ed · Sanskrit</p>

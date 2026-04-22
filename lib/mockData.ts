@@ -79,7 +79,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 't1',
     name: 'Ananya S.',
-    location: 'Bangalore',
+    location: 'Dharwad',
     rating: 5,
     text: 'The 1:1 sessions have helped my son improve his Sanskrit scores significantly. The teaching style is very patient and simple to understand.',
     avatar: 'https://i.pravatar.cc/150?u=ananya',
@@ -88,7 +88,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 't2',
     name: 'Rajesh Kumar',
-    location: 'Hyderabad',
+    location: 'Bangalore',
     rating: 5,
     text: 'I started learning Sanskrit as an adult beginner. Sanatanadhara makes it so easy to grasp complex grammar rules. Highly recommended for serious learners!',
     avatar: 'https://i.pravatar.cc/150?u=rajesh',
@@ -97,7 +97,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 't3',
     name: 'Sowmya V.',
-    location: 'Chennai',
+    location: 'Mysore',
     rating: 5,
     text: 'The Shloka chanting sessions are very peaceful and well-structured. My daughter has learned to chant Bhagavad Gita verses with perfect pronunciation.',
     avatar: 'https://i.pravatar.cc/150?u=sowmya',
