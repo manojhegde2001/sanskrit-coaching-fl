@@ -1,83 +1,90 @@
 'use client';
 
-import { useState } from 'react';
 import Button from '@/components/ui/Button';
-import Modal from '@/components/ui/Modal';
-import { FaStar, FaGlobe } from 'react-icons/fa';
+import { FaCheckCircle, FaWhatsapp } from 'react-icons/fa';
+
+const WA_LINK =
+  'https://wa.me/919482111881?text=Hello%2C%20I%27m%20interested%20in%20Sanskrit%20classes.%20I%20would%20like%20to%20book%20a%20free%20demo%20session.';
+
+const highlights = [
+  'One-on-One Personalized Learning',
+  'Flexible Timings',
+  'Learn in English / Sanskrit / Telugu / Kannada',
+  '5+ Years Teaching Experience',
+  'Suitable for Beginners to Advanced Learners',
+];
 
 export default function Hero() {
-  const [modalOpen, setModalOpen] = useState(false);
-
   return (
     <>
       {/* ─── MOBILE HERO ─── */}
       <section className="relative bg-cream overflow-hidden lg:hidden">
-        {/* Decorative blobs */}
         <div className="absolute inset-0 pattern-bg opacity-30" />
         <div className="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-saffron-100/40" />
         <div className="absolute bottom-0 -left-10 w-40 h-40 rounded-full bg-amber-100/30" />
 
-        <div className="relative z-10 w-full px-5 pt-20 pb-10 flex flex-col">
+        <div className="relative z-10 w-full px-5 pt-24 pb-12 flex flex-col">
 
-          {/* 1. Label */}
-          <span className="inline-flex items-center gap-1.5 self-start bg-saffron-50 border border-saffron-200 text-saffron-600 text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full mb-5">
-            <FaStar className="text-saffron-400 text-[8px]" />
-            Sanskrit · Live · 1-on-1
+          {/* Brand name */}
+          <span className="inline-flex flex-col self-start mb-5">
+            <span className="heading-cinzel text-lg font-bold text-maroon-900 tracking-tight leading-tight">
+              Sanatanadhara
+            </span>
+            <span className="text-xs font-semibold text-saffron-600 tracking-widest">
+              सनातनधारा / ಸನಾತನಧಾರ
+            </span>
           </span>
 
-          {/* 2. Heading */}
-          <h1 className="heading-cinzel text-3xl font-semibold text-maroon-900 leading-tight mb-3">
-            Learn Sanskrit<br />
-            <span className="gradient-text">the Right Way</span>
+          {/* Heading */}
+          <h1 className="heading-cinzel text-3xl font-bold text-maroon-900 leading-tight mb-3">
+            Personalized Sanskrit Learning,{' '}
+            <span className="gradient-text">Designed for You</span>
           </h1>
 
-          {/* 3. Subtext */}
+          {/* Subtext */}
           <p className="text-sm text-maroon-700/65 leading-relaxed mb-6 max-w-xs">
-            Personalized 1-on-1 coaching with Prasanna Sir — rooted in tradition, built for you.
+            Learn Sanskrit through flexible, one-on-one sessions tailored to your pace, goals, and background.
           </p>
 
-          {/* 4. CTAs */}
-          <div className="flex flex-col gap-2.5 w-full mb-7">
+          {/* CTAs */}
+          <div className="flex flex-col gap-2.5 w-full mb-8">
             <Button
               variant="primary"
               size="lg"
-              href="https://wa.me/919482111881?text=Namaste!%20I%20am%20interested%20in%20learning%20Sanskrit%20with%20Prasanna%20Sir."
+              href={WA_LINK}
               className="w-full rounded-xl justify-center shadow-md shadow-saffron-500/20"
             >
-              WhatsApp Now
+              <FaWhatsapp className="text-lg" />
+              Chat on WhatsApp
             </Button>
             <Button
               variant="secondary"
               size="md"
-              onClick={() => setModalOpen(true)}
+              href="/contact"
               className="w-full rounded-xl justify-center"
             >
-              Book Free Demo
+              Start Your Free Demo
             </Button>
           </div>
 
-          {/* 5. Instructor strip */}
-          <div className="flex items-center gap-3 border-l-2 border-saffron-400 pl-4">
-            <div className="w-11 h-11 rounded-lg overflow-hidden border border-white shadow flex-shrink-0">
-              <img src="/image.png" alt="Prasanna" className="w-full h-full object-cover" />
-            </div>
-            <div className="min-w-0">
-              <p className="heading-cinzel text-sm font-bold text-maroon-900 truncate">Prasanna</p>
-              <p className="text-[10px] text-saffron-600 font-semibold uppercase tracking-wider truncate">
-                M.A Acharya · B.Ed · 5+ Yrs
-              </p>
-              <div className="flex gap-0.5 mt-0.5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i} className="text-amber-400 text-[10px]">★</span>
-                ))}
-              </div>
-            </div>
+          {/* Why Choose Us — mobile */}
+          <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-amber-100 p-5 shadow-sm">
+            <p className="text-[10px] font-bold text-maroon-600/60 uppercase tracking-widest mb-3">
+              Why Choose Us
+            </p>
+            <ul className="space-y-2">
+              {highlights.map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-maroon-800 font-medium">
+                  <FaCheckCircle className="text-saffron-500 mt-0.5 shrink-0 text-xs" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-
         </div>
       </section>
 
-      {/* ─── DESKTOP HERO (two-column, lg and above) ─── */}
+      {/* ─── DESKTOP HERO ─── */}
       <section className="relative min-h-screen hidden lg:flex items-center overflow-hidden bg-cream">
         {/* Background */}
         <div className="absolute inset-0 pattern-bg opacity-60" />
@@ -90,72 +97,58 @@ export default function Hero() {
 
             {/* Content */}
             <div className="col-span-7">
-              <div className="inline-flex items-center gap-2 bg-saffron-50 border border-saffron-200 text-saffron-600 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8 animate-fade-in">
-                <FaStar className="text-saffron-400" />
-                Learn with Prasanna (Acharya, Sanskrit)
+              {/* Brand label */}
+              <div className="flex flex-col mb-6 animate-fade-in">
+                <span className="heading-cinzel text-3xl font-bold text-maroon-900 tracking-tight leading-tight">
+                  Sanatanadhara
+                </span>
+                <span className="text-base font-semibold text-saffron-600 tracking-widest mt-0.5">
+                  सनातनधारा / ಸನಾತನಧಾರ
+                </span>
               </div>
 
-              <h1 className="heading-cinzel text-5xl lg:text-7xl font-bold text-maroon-900 leading-[1.1] mb-6 animate-fade-up">
-                Learn Sanskrit <span className="gradient-text">the Right Way</span>
+              <h1 className="heading-cinzel text-5xl lg:text-6xl font-bold text-maroon-900 leading-[1.1] mb-6 animate-fade-up">
+                Personalized Sanskrit Learning,{' '}
+                <span className="gradient-text">Designed for You</span>
               </h1>
 
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-xl text-gold-600 font-medium tracking-wide border-r border-gold-200 pr-4">सनातनधारा</span>
-                <span className="text-xl text-gold-600 font-medium tracking-wide">ಸನಾತನಧಾರ</span>
-              </div>
-
               <p className="text-xl text-maroon-700/70 leading-relaxed mb-10 max-w-xl animate-fade-up">
-                Personalized one-on-one learning with traditional depth and modern clarity. Your child needs the best cultured education — rooted in tradition, delivered with excellence.
+                Learn Sanskrit through flexible, one-on-one sessions tailored to your pace, goals, and background.
               </p>
 
               <div className="flex gap-4 mb-12 animate-fade-up">
                 <Button
                   variant="primary"
                   size="lg"
-                  href="https://wa.me/919482111881?text=Namaste!%20I%20am%20interested%20in%20learning%20Sanskrit%20with%20Prasanna%20Sir."
+                  href="/contact"
                   className="rounded-2xl shadow-xl shadow-saffron-500/20"
                 >
-                  WhatsApp Now
+                  Start Your Free Demo
                 </Button>
                 <Button
                   variant="secondary"
                   size="lg"
-                  onClick={() => setModalOpen(true)}
+                  href={WA_LINK}
                   className="rounded-2xl"
                 >
-                  Book Free Demo
+                  <FaWhatsapp className="text-lg" />
+                  Chat on WhatsApp
                 </Button>
               </div>
 
-              {/* Social proof */}
-              <div className="flex items-center gap-6 animate-fade-in">
-                <div className="flex items-center gap-3">
-                  <div className="flex -space-x-2">
-                    {['PN', 'AM', 'SK', 'RV'].map((initials) => (
-                      <div
-                        key={initials}
-                        className="w-9 h-9 rounded-full bg-saffron-gradient border-2 border-white flex items-center justify-center text-white text-[10px] font-bold"
-                      >
-                        {initials}
-                      </div>
-                    ))}
-                  </div>
-                  <div>
-                    <div className="flex gap-0.5">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <span key={i} className="text-amber-400 text-xs">★</span>
-                      ))}
-                    </div>
-                    <p className="text-[10px] text-maroon-600/70 uppercase tracking-widest font-bold">
-                      <strong className="text-maroon-900">200+</strong> Students
-                    </p>
-                  </div>
-                </div>
-                <div className="w-px h-8 bg-amber-200" />
-                <div className="flex items-center gap-3 text-xs text-maroon-600/70 font-semibold tracking-wide uppercase">
-                  <FaGlobe className="text-saffron-400 text-sm" />
-                  <span>USA · UK · Canada · UAE · India</span>
-                </div>
+              {/* Why Choose Us */}
+              <div className="bg-white/60 backdrop-blur-sm rounded-3xl border border-amber-100 p-6 shadow-sm animate-fade-in">
+                <p className="text-[10px] font-bold text-maroon-600/60 uppercase tracking-widest mb-4">
+                  Why Choose Us
+                </p>
+                <ul className="grid grid-cols-1 gap-2.5">
+                  {highlights.map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-sm text-maroon-800 font-medium">
+                      <FaCheckCircle className="text-saffron-500 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
@@ -166,7 +159,7 @@ export default function Hero() {
               <div className="relative aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl border-4 border-white animate-fade-in">
                 <img
                   src="/image.png"
-                  alt="Prasanna - Sanskrit Instructor"
+                  alt="Prasanna - Sanskrit Instructor at Sanatanadhara"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-maroon-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -178,14 +171,9 @@ export default function Hero() {
                 </div>
               </div>
               <div className="absolute -left-6 top-1/4 bg-white p-4 rounded-2xl shadow-xl border border-amber-100 animate-fade-up delay-200 transform hover:rotate-3 transition-transform">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-saffron-50 flex items-center justify-center text-saffron-600 text-xl shadow-inner">
-                    <FaStar />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-maroon-900">M.A (Acharya)</p>
-                    <p className="text-[9px] text-maroon-600/60 uppercase tracking-wider">Top Qualified</p>
-                  </div>
+                <div className="text-center">
+                  <p className="heading-cinzel text-sm font-bold text-maroon-900">M.A (Acharya)</p>
+                  <p className="text-[9px] text-saffron-600 uppercase tracking-wider font-semibold">B.Ed · Sanskrit</p>
                 </div>
               </div>
             </div>
@@ -199,12 +187,6 @@ export default function Hero() {
           <div className="w-px h-10 bg-gradient-to-b from-saffron-400 to-transparent" />
         </div>
       </section>
-
-      <Modal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        type="booking"
-      />
     </>
   );
 }

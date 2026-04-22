@@ -1,27 +1,23 @@
 import Link from 'next/link';
-import { FaOm, FaWhatsapp, FaInstagram, FaYoutube, FaFacebook, FaPhone, FaEnvelope, FaMapMarkerAlt, FaScroll } from 'react-icons/fa';
+import { FaWhatsapp, FaPhone, FaEnvelope, FaScroll } from 'react-icons/fa';
+
+const WA_LINK =
+  'https://wa.me/919482111881?text=Hello%2C%20I%27m%20interested%20in%20Sanskrit%20classes.%20I%20would%20like%20to%20book%20a%20free%20demo%20session.';
 
 const footerLinks = {
   Pages: [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
-    { href: '/courses', label: 'Learning Programs' },
+    { href: '/courses', label: 'Programs' },
     { href: '/how-it-works', label: 'How It Works' },
-    { href: '/contact', label: 'Contact & Booking' },
+    { href: '/contact', label: 'Contact' },
   ],
   Programs: [
     { href: '/courses', label: 'Personalized Sanskrit (1:1)' },
-    { href: '/courses', label: 'Academic Support (CBSE/State)' },
-    { href: '/courses', label: 'Shlokas & Scriptures' },
+    { href: '/courses', label: 'Academic Support (CBSE / State Board)' },
+    { href: '/courses', label: 'Shlokas & Scriptures Learning' },
   ],
 };
-
-const socialLinks = [
-  { href: '#', icon: FaWhatsapp, label: 'WhatsApp', color: 'hover:text-green-400' },
-  { href: '#', icon: FaInstagram, label: 'Instagram', color: 'hover:text-pink-400' },
-  { href: '#', icon: FaYoutube, label: 'YouTube', color: 'hover:text-red-400' },
-  { href: '#', icon: FaFacebook, label: 'Facebook', color: 'hover:text-blue-400' },
-];
 
 export default function Footer() {
   return (
@@ -46,21 +42,21 @@ export default function Footer() {
                 </span>
               </Link>
               <p className="text-amber-200/60 text-sm leading-relaxed max-w-sm">
-                Helping students excel in Sanskrit through personalized online coaching. Experience the depth of tradition with modern academic clarity.
+                Personalized Sanskrit learning through flexible one-on-one sessions tailored to your pace, goals, and background.
               </p>
             </div>
-            {/* Social links */}
-            <div className="flex items-center gap-4 mt-6">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className={`text-amber-300 ${social.color} transition-colors duration-200 text-xl`}
-                >
-                  <social.icon />
-                </a>
-              ))}
+            {/* WhatsApp link */}
+            <div className="mt-6">
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="inline-flex items-center gap-2 text-amber-300 hover:text-green-400 transition-colors duration-200 text-sm font-semibold"
+              >
+                <FaWhatsapp className="text-xl" />
+                Chat on WhatsApp
+              </a>
             </div>
           </div>
 
@@ -82,10 +78,13 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-bold text-white uppercase tracking-widest mb-6">Programs</h4>
             <ul className="space-y-3">
-              <li className="text-sm text-amber-200/50">CBSE & State Board</li>
-              <li className="text-sm text-amber-200/50">Basic Sanskrit</li>
-              <li className="text-sm text-amber-200/50">Advanced Vyakarana</li>
-              <li className="text-sm text-amber-200/50">Kannada Language</li>
+              {footerLinks.Programs.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-sm text-amber-200/50 hover:text-saffron-400 transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -97,21 +96,23 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <FaPhone className="text-saffron-400 mt-0.5 shrink-0" />
-                <span className="text-sm text-amber-200/70 text-right">8073362748</span>
+                <a href="tel:+918073362748" className="text-sm text-amber-200/70 hover:text-saffron-400 transition-colors">
+                  8073362748
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <FaWhatsapp className="text-saffron-400 mt-0.5 shrink-0" />
-                <span className="text-sm text-amber-200/70 text-right">9482111881</span>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="text-sm text-amber-200/70 hover:text-saffron-400 transition-colors">
+                  9482111881
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <FaEnvelope className="text-saffron-400 mt-0.5 shrink-0" />
-                <span className="text-sm text-amber-200/70 text-right break-all">harihiom02@gmail.com</span>
+                <a href="mailto:harihiom02@gmail.com" className="text-sm text-amber-200/70 hover:text-saffron-400 transition-colors break-all">
+                  harihiom02@gmail.com
+                </a>
               </li>
             </ul>
-            <div className="mt-6 p-4 bg-white/5 rounded-xl border border-gold-500/20">
-              <p className="text-xs text-amber-200/60 mb-1">Class schedule (IST)</p>
-              <p className="text-sm text-amber-100 font-medium">Mon – Sat: 6 AM – 9 PM</p>
-            </div>
           </div>
         </div>
       </div>
@@ -120,13 +121,10 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-amber-200/40">
-            © {new Date().getFullYear()} Sanatana Dhara. All rights reserved.
+            © {new Date().getFullYear()} Sanatanadhara. All rights reserved.
           </p>
           <p className="text-xs text-amber-200/40 text-center">
-            ॐ तत् सत् — &quot;That is Truth&quot;
-          </p>
-          <p className="text-xs text-amber-200/40">
-            Built with ❤️ for Sanskrit learners worldwide
+            ॐ तत् सत्
           </p>
         </div>
       </div>

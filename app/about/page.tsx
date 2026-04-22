@@ -1,25 +1,35 @@
 'use client';
 
-import type { Metadata } from 'next';
 import SectionHeader from '@/components/ui/SectionHeader';
 import Button from '@/components/ui/Button';
 import CTABanner from '@/components/sections/CTABanner';
-import { FaGraduationCap, FaHeart, FaStar, FaBookOpen, FaCheckCircle, FaScroll } from 'react-icons/fa';
+import { FaGraduationCap, FaHeart, FaStar, FaBookOpen, FaWhatsapp } from 'react-icons/fa';
+
+const WA_LINK =
+  'https://wa.me/919482111881?text=Hello%2C%20I%27m%20interested%20in%20Sanskrit%20classes.%20I%20would%20like%20to%20book%20a%20free%20demo%20session.';
 
 export default function AboutPage() {
-  const timeline = [
-    { year: '5+ Years', event: 'Dedicated teaching experience in Sanskrit and Vedic studies.' },
-    { year: 'Acharya', event: 'Completed M.A (Acharya) in Sanskrit, mastering classical grammar and literature.' },
-    { year: 'Shiksha-sastri', event: 'Completed B.Ed (Shiksha-sastri), specialized in Sanskrit pedagogy.' },
-    { year: 'Multilingual', event: 'Teaching proficiency in English, Sanskrit, Telugu, and Kannada.' },
-    { year: '1:1 Focus', event: 'Specialize in personalized learning paths for students from Grade 1 to 12.' },
-  ];
-
-  const qualities = [
-    { icon: <FaGraduationCap />, title: 'Academic Mastery', desc: 'M.A (Acharya) and B.Ed (Shiksha-sastri) qualified teacher with deep roots in traditional Sanskrit studies.' },
-    { icon: <FaHeart />, title: 'Multilingual Teaching', desc: 'Comfortable teaching in English, Sanskrit, Telugu, and Kannada, making learning accessible to diverse students.' },
-    { icon: <FaStar />, title: '5+ Years Experience', desc: 'Years of experience in guiding students from beginners to advanced scriptural study.' },
-    { icon: <FaBookOpen />, title: 'Personalized Approach', desc: 'Focus on 1:1 sessions that adapt to your pace, whether for academic support or personal interest.' },
+  const qualifications = [
+    {
+      icon: <FaGraduationCap />,
+      title: 'M.A (Acharya) in Sanskrit',
+      desc: 'A postgraduate degree mastering classical Sanskrit grammar, literature, and Vedic studies.',
+    },
+    {
+      icon: <FaBookOpen />,
+      title: 'B.Ed (Shiksha-sastri)',
+      desc: 'Specialized teacher training with a focus on Sanskrit pedagogy and academic instruction.',
+    },
+    {
+      icon: <FaStar />,
+      title: '5+ Years Teaching Experience',
+      desc: 'Years of dedicated experience guiding students from beginners to advanced learners.',
+    },
+    {
+      icon: <FaHeart />,
+      title: 'Multilingual Teaching',
+      desc: 'Teaching in English, Sanskrit, Telugu, and Kannada — making learning accessible to every student.',
+    },
   ];
 
   return (
@@ -29,10 +39,10 @@ export default function AboutPage() {
         <div className="absolute inset-0 pattern-bg opacity-30" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeader
-            eyebrow="Lead Instructor"
-            title="Meet"
-            highlight="Prasanna"
-            subtitle="Bridging traditional depth with modern educational clarity."
+            eyebrow="About Sanatanadhara"
+            title="About"
+            highlight="Sanatanadhara"
+            subtitle="Making Sanskrit learning simple, personalized, and accessible for every student."
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mt-12">
@@ -42,11 +52,11 @@ export default function AboutPage() {
               <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white transform transition-transform duration-500 group-hover:scale-[1.02]">
                 <img
                   src="/image.png"
-                  alt="Prasanna - Sanskrit Instructor"
+                  alt="Prasanna - Sanskrit Instructor at Sanatanadhara"
                   className="w-full h-full object-cover"
                 />
               </div>
-              
+
               {/* Floating badges */}
               <div className="absolute -left-6 top-10 bg-white rounded-2xl shadow-xl p-4 border border-amber-100 text-center animate-fade-up">
                 <p className="heading-cinzel text-2xl font-bold gradient-text">1:1</p>
@@ -60,24 +70,22 @@ export default function AboutPage() {
 
             {/* Info Col */}
             <div className="animate-fade-up order-1 lg:order-2">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-maroon-900 flex items-center justify-center text-saffron-500 shadow-lg">
-                  <FaScroll className="text-xl" />
-                </div>
-                <div>
-                  <h3 className="heading-cinzel text-3xl font-bold text-maroon-900">Academic Excellence</h3>
-                  <p className="text-saffron-600 font-bold tracking-widest uppercase text-xs">M.A (Acharya) · B.Ed</p>
-                </div>
-              </div>
-              
-              <p className="text-maroon-700/80 leading-relaxed mb-6 text-lg">
-                Namaste! I am <strong>Prasanna</strong>. Teaching is not just a profession for me—it is my passion. My mission is to ensure that every child receives the best cultured education, rooted in our traditional values but delivered with modern clarity.
-              </p>
-              
-              <p className="text-maroon-700/70 mb-8 leading-relaxed">
-                With over five years of dedicated experience in Sanskrit pedagogy and a background in traditional Acharya studies, I focus on bridging ancient wisdom with contemporary learning needs. Whether it is Master&apos;s level grammar or basic shlokas for children, I adapt the curriculum to the student&apos;s unique journey.
+              <h2 className="heading-cinzel text-3xl font-bold text-maroon-900 mb-2">
+                Teaching Approach
+              </h2>
+              <p className="text-saffron-600 font-bold tracking-widest uppercase text-xs mb-6">
+                Simple · Personalized · Effective
               </p>
 
+              <p className="text-maroon-700/80 leading-relaxed mb-6 text-lg">
+                Sanatanadhara focuses on making Sanskrit learning simple and personalized for every student. Whether you are a complete beginner or an advanced learner, each session is adapted to your pace and goals.
+              </p>
+
+              <p className="text-maroon-700/70 mb-8 leading-relaxed">
+                Every session is built on strong basics, clear explanations, and personal attention. The goal is to ensure you not only learn Sanskrit but truly understand and enjoy it.
+              </p>
+
+              {/* Language and Mode info */}
               <div className="grid grid-cols-2 gap-4 mb-10">
                 <div className="p-4 bg-white rounded-2xl border border-amber-50 shadow-sm">
                   <p className="text-[10px] text-maroon-600/50 uppercase font-bold tracking-widest mb-1">Languages</p>
@@ -90,15 +98,25 @@ export default function AboutPage() {
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <Button href="/contact" size="lg" className="rounded-2xl">Book Free Session</Button>
-                <Button href="https://wa.me/919482111881" variant="secondary" size="lg" className="rounded-2xl">WhatsApp Now</Button>
+                <Button href="/contact" size="lg" className="rounded-2xl">
+                  Book Free Session
+                </Button>
+                <Button
+                  href={WA_LINK}
+                  variant="secondary"
+                  size="lg"
+                  className="rounded-2xl"
+                >
+                  <FaWhatsapp className="text-lg" />
+                  Chat on WhatsApp
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Philosophy */}
+      {/* Teaching Philosophy */}
       <section className="section-padding bg-maroon-900 relative overflow-hidden">
         <span className="absolute right-8 top-1/2 -translate-y-1/2 text-white/5 text-[16rem] font-serif select-none">ॐ</span>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -106,40 +124,34 @@ export default function AboutPage() {
             Teaching Philosophy
           </span>
           <blockquote className="heading-cinzel text-2xl md:text-3xl font-bold text-white leading-relaxed mb-8">
-            &ldquo;Sanskrit is not merely a language to be learned — it is a way of seeing. When you understand Sanskrit, you begin to see the universe as the ancient sages did.&rdquo;
+            &ldquo;Simple explanations, strong basics, and personalized attention — that is how every student thrives.&rdquo;
           </blockquote>
           <div className="gold-divider mx-auto mb-4" />
-          <p className="text-amber-200/60 font-semibold tracking-widest uppercase text-sm">— Prasanna</p>
+          <p className="text-amber-200/60 font-semibold tracking-widest uppercase text-sm">— Sanatanadhara</p>
         </div>
       </section>
 
-      {/* Qualifications */}
+      {/* Experience & Qualifications */}
       <section className="section-padding bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Credentials"
             title="Experience &"
             highlight="Qualifications"
-            subtitle="A teaching career rooted in tradition and powered by academic excellence."
+            subtitle="A teaching background rooted in tradition and powered by academic excellence."
           />
-          <div className="relative mt-12">
-            <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-saffron-300 to-transparent" />
-            <div className="space-y-10">
-              {timeline.map((item, i) => (
-                <div key={i} className="flex gap-6 items-start pl-2">
-                  <div className="w-9 h-9 rounded-full bg-saffron-gradient flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-saffron z-10 relative">
-                    {i + 1}
-                  </div>
-                  <div className="flex-1">
-                    <span className="text-xs font-bold text-saffron-500 tracking-widest mb-1 block">
-                      {item.year}
-                    </span>
-                    <p className="text-maroon-900 font-bold text-lg mb-1">{item.event.split(',')[0]}</p>
-                    <p className="text-maroon-700/60 text-sm">{item.event}</p>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            {qualifications.map((q, i) => (
+              <div key={i} className="flex gap-5 p-6 bg-cream rounded-2xl border border-amber-100 hover:shadow-lg transition-shadow duration-300">
+                <div className="w-12 h-12 rounded-2xl bg-saffron-50 flex items-center justify-center text-saffron-600 text-xl shrink-0 shadow-sm border border-amber-100">
+                  {q.icon}
                 </div>
-              ))}
-            </div>
+                <div>
+                  <h3 className="heading-cinzel text-base font-bold text-maroon-900 mb-1.5">{q.title}</h3>
+                  <p className="text-sm text-maroon-700/65 leading-relaxed">{q.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

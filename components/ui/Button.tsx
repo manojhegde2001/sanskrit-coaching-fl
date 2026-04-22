@@ -33,6 +33,19 @@ export default function Button({
   const baseStyles = `${variantStyles[variant]} ${sizeStyles[size]} ${fullWidth ? 'w-full' : ''} ${className}`;
 
   if (href) {
+    const isExternal = href.startsWith('http://') || href.startsWith('https://');
+    if (isExternal) {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center justify-center gap-2 transition-all duration-200 active:scale-95 ${baseStyles}`}
+        >
+          {children}
+        </a>
+      );
+    }
     return (
       <Link href={href} className={`inline-flex items-center justify-center gap-2 transition-all duration-200 active:scale-95 ${baseStyles}`}>
         {children}

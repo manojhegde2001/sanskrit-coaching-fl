@@ -159,7 +159,7 @@ export default function Navbar() {
               </div>
             </div>
             <Button
-              href="https://wa.me/919482111881"
+              href="https://wa.me/919482111881?text=Hello%2C%20I%27m%20interested%20in%20Sanskrit%20classes.%20I%20would%20like%20to%20book%20a%20free%20demo%20session."
               variant="primary"
               fullWidth
               size="lg"
