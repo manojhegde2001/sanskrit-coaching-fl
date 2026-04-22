@@ -6,9 +6,8 @@ import WhatsAppFloat from '@/components/ui/WhatsAppFloat';
 import ScrollToTop from '@/components/ui/ScrollToTop';
 
 export const metadata: Metadata = {
-  title: 'Sanatanadhara — Sanskrit & Kannada Classes Online',
-  description:
-    'Your child needs the best cultured education. Personalized one-on-one Sanskrit and Kannada coaching online — CBSE, State Board, Shlokas, Basic & Advanced Grammar. Grade 5–12 and Adults.',
+  title: 'Sanatanadhara | Personalized Sanskrit & Kannada Learning',
+  description: 'Master Sanskrit and Kannada through flexible 1:1 sessions tailored to your pace. CBSE/State Board academic support and Shloka classes available.',
   icons: {
     icon: '/icon.svg',
   },
@@ -19,8 +18,6 @@ export const metadata: Metadata = {
     images: [{ url: '/image.png' }],
   },
   keywords: [
-    'Sanskrit classes online',
-    'Sanskrit coaching',
     'CBSE Sanskrit',
     'State Board Sanskrit',
     'Kannada classes',

@@ -52,13 +52,20 @@ export default function CoursesPreview() {
               </div>
 
               <div className="p-6 flex flex-col flex-1">
-                <span className={`self-start text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mb-3 ${
-                  course.level === 'Advanced'
-                    ? 'bg-rose-100 text-rose-700'
-                    : 'bg-emerald-100 text-emerald-700'
-                }`}>
-                  {course.level}
-                </span>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className={`text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${
+                    course.category === 'Academic'
+                      ? 'bg-blue-100 text-blue-700'
+                      : course.category === 'Scriptures'
+                        ? 'bg-amber-100 text-amber-700'
+                        : 'bg-emerald-100 text-emerald-700'
+                  }`}>
+                    {course.category}
+                  </span>
+                  <span className="text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-maroon-50 text-maroon-700">
+                    {course.level}
+                  </span>
+                </div>
 
                 <h3 className="heading-cinzel text-base font-bold text-maroon-900 mb-2 leading-snug">
                   {course.title}

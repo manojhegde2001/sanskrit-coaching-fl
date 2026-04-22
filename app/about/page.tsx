@@ -82,7 +82,7 @@ export default function AboutPage() {
               {/* Tagline */}
               <div className="inline-block bg-saffron-50 border border-saffron-200 px-4 py-2 rounded-full mb-6">
                 <p className="text-saffron-700 text-xs font-bold uppercase tracking-widest">
-                  ✨ Your child needs the best cultured education
+                  ✨ Nurturing Wisdom Through Personalized Learning
                 </p>
               </div>
 

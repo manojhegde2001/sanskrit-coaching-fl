@@ -5,6 +5,7 @@ export interface Course {
   description: string;
   duration: string;
   level: 'Beginner' | 'Intermediate' | 'Advanced';
+  category: 'Personalized' | 'Academic' | 'Scriptures';
   batchDetails: string;
   topics: string[];
   price: string;
