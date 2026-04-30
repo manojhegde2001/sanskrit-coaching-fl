@@ -10,34 +10,54 @@ export default function Hero() {
 
   return (
     <>
-      {/* ─── MOBILE HERO ─── */}
-      <section className="relative bg-cream overflow-hidden lg:hidden">
+      {/* ─── MOBILE HERO (IMPROVISED) ─── */}
+      <section className="relative bg-cream overflow-hidden lg:hidden pt-28 pb-16">
+        {/* Background elements */}
         <div className="absolute inset-0 pattern-bg opacity-30" />
-        <div className="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-saffron-100/40" />
-        <div className="absolute bottom-0 -left-10 w-40 h-40 rounded-full bg-amber-100/30" />
+        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-saffron-100/50 to-transparent" />
+        <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-saffron-200/20 blur-2xl" />
+        <div className="absolute top-40 -left-10 w-32 h-32 rounded-full bg-amber-200/20 blur-2xl" />
 
-        <div className="relative z-10 w-full px-5 pt-24 pb-12 flex flex-col">
-
-          {/* Brand name removed as per user request */}
+        <div className="relative z-10 w-full px-6 flex flex-col">
+          
+          {/* Expert Badge + Avatar */}
+          <div className="flex items-center gap-3 mb-8 animate-fade-in">
+            <div className="relative">
+              <div className="absolute inset-0 bg-saffron-500 rounded-full animate-ping opacity-20" />
+              <div className="relative w-12 h-12 rounded-full border-2 border-white shadow-lg overflow-hidden bg-white">
+                <img src="/image.png" alt="Teacher Avatar" className="w-full h-full object-cover scale-110" />
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] font-bold text-saffron-600 uppercase tracking-widest leading-none mb-1">
+                Expert Instruction
+              </span>
+              <span className="heading-cinzel text-xs font-bold text-maroon-900 leading-none">
+                {sections.about.experience} Experience
+              </span>
+            </div>
+          </div>
 
           {/* Heading */}
-          <h1 className="heading-cinzel text-4xl font-bold text-maroon-900 leading-[1.1] mb-4">
-            {hero.title.split(',')[0]}, {' '}
-            <span className="gradient-text">{hero.title.split(',')[1]}</span>
+          <h1 className="heading-cinzel text-[2.75rem] font-bold text-maroon-900 leading-[1.05] mb-6 tracking-tight">
+            {hero.title.split('with')[0]}
+            <span className="block mt-1 bg-saffron-gradient bg-clip-text text-transparent">
+              with {hero.title.split('with')[1]}
+            </span>
           </h1>
 
           {/* Subtext */}
-          <p className="text-sm text-maroon-700/65 leading-relaxed mb-8 max-w-xs">
+          <p className="text-base text-maroon-700/70 leading-relaxed mb-10">
             {hero.subtitle}
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col gap-3 w-full mb-10">
+          <div className="flex flex-col gap-4 w-full mb-12">
             <Button
               variant="primary"
               size="lg"
               href={hero.ctaPrimary.type === 'whatsapp' ? WA_LINK : '/contact'}
-              className="w-full rounded-2xl justify-center shadow-xl shadow-saffron-500/20 py-4"
+              className="w-full rounded-2xl justify-center shadow-xl shadow-saffron-500/30 py-5 text-base font-bold"
             >
               {hero.ctaPrimary.type === 'whatsapp' && <FaWhatsapp className="text-xl" />}
               {hero.ctaPrimary.label}
@@ -46,32 +66,42 @@ export default function Hero() {
               variant="secondary"
               size="lg"
               href={hero.ctaSecondary.type === 'whatsapp' ? WA_LINK : '/contact'}
-              className="w-full rounded-2xl justify-center py-4"
+              className="w-full rounded-2xl justify-center py-5 text-base font-bold bg-white/60 backdrop-blur-md"
             >
               {hero.ctaSecondary.type === 'whatsapp' && <FaWhatsapp className="text-xl" />}
               {hero.ctaSecondary.label}
             </Button>
           </div>
 
-          {/* Why Choose Us — mobile */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl border border-amber-100 p-6 shadow-sm">
-            <p className="text-[10px] font-bold text-maroon-600/60 uppercase tracking-widest mb-4">
-              {sections.features.title}
-            </p>
-            <ul className="space-y-3">
-              {sections.features.items.map((item) => (
-                <li key={item.title} className="flex items-start gap-3 text-sm text-maroon-800 font-medium leading-tight">
-                  <FaCheckCircle className="text-saffron-500 mt-0.5 shrink-0 text-xs" />
-                  <span>
-                    <strong className="block">{item.title}</strong>
-                    <span className="text-xs text-maroon-700/60 font-normal">{item.description}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
+          {/* Feature Highlights - Compact Row */}
+          <div className="grid grid-cols-2 gap-3">
+            {sections.features.items.slice(0, 4).map((item, i) => (
+              <div 
+                key={i} 
+                className="bg-white/40 backdrop-blur-sm p-4 rounded-2xl border border-amber-100/50 flex flex-col gap-2"
+              >
+                <FaCheckCircle className="text-saffron-500 text-sm" />
+                <span className="text-[11px] font-bold text-maroon-900 leading-tight">
+                  {item.title}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Trust indicator */}
+          <div className="mt-10 pt-8 border-t border-amber-100/50 flex items-center justify-between">
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-maroon-900">1:1 Live</span>
+              <span className="text-[10px] text-maroon-600/60 uppercase font-bold tracking-widest">Online Sessions</span>
+            </div>
+            <div className="flex flex-col items-end">
+              <span className="text-xl font-bold text-saffron-600">All Ages</span>
+              <span className="text-[10px] text-maroon-600/60 uppercase font-bold tracking-widest">Beginner to Adv.</span>
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* ─── DESKTOP HERO ─── */}
       <section className="relative min-h-screen hidden lg:flex items-center overflow-hidden bg-cream">
