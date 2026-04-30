@@ -18,16 +18,7 @@ export default function Hero() {
 
         <div className="relative z-10 w-full px-5 pt-24 pb-12 flex flex-col">
 
-          {/* Brand name */}
-          <span className="inline-flex flex-col self-start mb-6">
-            <span className="heading-cinzel text-xl font-bold text-maroon-900 tracking-tight leading-tight flex items-center gap-2">
-              <FaSun className="text-saffron-500 text-sm" />
-              {site.name}
-            </span>
-            <span className="text-[10px] font-bold text-saffron-600 tracking-[0.2em] uppercase mt-1">
-              {site.scripts.join(' / ')}
-            </span>
-          </span>
+          {/* Brand name removed as per user request */}
 
           {/* Heading */}
           <h1 className="heading-cinzel text-4xl font-bold text-maroon-900 leading-[1.1] mb-4">
@@ -95,20 +86,7 @@ export default function Hero() {
 
             {/* Content */}
             <div className="col-span-7">
-              {/* Brand label */}
-              <div className="flex flex-col mb-8 animate-fade-in">
-                <div className="flex items-center gap-3 mb-1">
-                  <div className="w-10 h-10 rounded-xl bg-maroon-900 flex items-center justify-center text-saffron-400 shadow-lg">
-                    <FaSun className="text-xl" />
-                  </div>
-                  <span className="heading-cinzel text-3xl font-bold text-maroon-900 tracking-tight leading-tight">
-                    {site.name}
-                  </span>
-                </div>
-                <span className="text-base font-bold text-saffron-600 tracking-[0.3em] mt-1 ml-1">
-                  {site.scripts.join(' / ')}
-                </span>
-              </div>
+              {/* Brand label removed as per user request */}
 
               <h1 className="heading-cinzel text-5xl lg:text-7xl font-bold text-maroon-900 leading-[1.1] mb-8 animate-fade-up">
                 {hero.title.split(',')[0]}<br />
@@ -180,7 +158,7 @@ export default function Hero() {
                 </div>
               </div>
               
-              <div className="absolute -left-6 top-1/4 bg-white p-5 rounded-3xl shadow-2xl border border-amber-100 animate-fade-up delay-200 transform hover:-rotate-6 transition-transform">
+              <div className="absolute -left-6 top-[65%] bg-white p-5 rounded-3xl shadow-2xl border border-amber-100 animate-fade-up delay-200 transform hover:-rotate-6 transition-transform">
                 <div className="text-center">
                   <p className="heading-cinzel text-base font-bold text-maroon-900">{sections.about.qualifications[0]}</p>
                   <p className="text-[9px] text-saffron-600 uppercase tracking-widest font-bold mt-1">{sections.about.qualifications[1]}</p>
