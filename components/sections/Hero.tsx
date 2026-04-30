@@ -25,10 +25,11 @@ export default function Hero() {
             <div className="relative w-16 h-16 rounded-full border-2 border-saffron-200 p-1 bg-white shadow-md">
               <div className="w-full h-full rounded-full overflow-hidden">
                 <img 
-                  src="/image.png" 
+                  src="/avatar.png" 
                   alt="Teacher Avatar" 
-                  className="w-full h-full object-cover scale-[2.2] object-top grayscale-[0.2] contrast-[1.1]" 
+                  className="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]" 
                 />
+
               </div>
             </div>
             <div className="flex flex-col">
