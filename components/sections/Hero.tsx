@@ -20,23 +20,32 @@ export default function Hero() {
 
         <div className="relative z-10 w-full px-6 flex flex-col">
           
-          {/* Expert Badge + Avatar */}
-          <div className="flex items-center gap-3 mb-8 animate-fade-in">
-            <div className="relative">
-              <div className="absolute inset-0 bg-saffron-500 rounded-full animate-ping opacity-20" />
-              <div className="relative w-12 h-12 rounded-full border-2 border-white shadow-lg overflow-hidden bg-white">
-                <img src="/image.png" alt="Teacher Avatar" className="w-full h-full object-cover scale-110" />
+          {/* Expert Badge + Avatar (Improvised) */}
+          <div className="flex items-center gap-4 mb-8">
+            <div className="relative w-16 h-16 rounded-full border-2 border-saffron-200 p-1 bg-white shadow-md">
+              <div className="w-full h-full rounded-full overflow-hidden">
+                <img 
+                  src="/image.png" 
+                  alt="Teacher Avatar" 
+                  className="w-full h-full object-cover scale-[2.2] object-top grayscale-[0.2] contrast-[1.1]" 
+                />
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-[10px] font-bold text-saffron-600 uppercase tracking-widest leading-none mb-1">
-                Expert Instruction
+              <div className="flex items-center gap-2 mb-1">
+                <span className="px-2 py-0.5 rounded-md bg-saffron-100 text-saffron-700 text-[9px] font-bold uppercase tracking-wider">
+                  Qualified Teacher
+                </span>
+              </div>
+              <span className="heading-cinzel text-sm font-bold text-maroon-900 leading-tight">
+                M.A (Acharya), B.Ed
               </span>
-              <span className="heading-cinzel text-xs font-bold text-maroon-900 leading-none">
+              <span className="text-[10px] font-medium text-maroon-700/60 uppercase tracking-[0.1em]">
                 {sections.about.experience} Experience
               </span>
             </div>
           </div>
+
 
           {/* Heading */}
           <h1 className="heading-cinzel text-[2.75rem] font-bold text-maroon-900 leading-[1.05] mb-6 tracking-tight">
