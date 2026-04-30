@@ -81,8 +81,8 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-gold-100/40 to-transparent translate-y-1/4 -translate-x-1/4" />
         <span className="om-watermark text-maroon-900 right-10 top-1/2 -translate-y-1/2 text-[25rem] select-none pointer-events-none">ॐ</span>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12 pt-32 pb-24 w-full">
-          <div className="grid grid-cols-12 gap-12 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12 py-32 w-full">
+          <div className="grid grid-cols-12 gap-12 items-start">
 
             {/* Content */}
             <div className="col-span-7">
