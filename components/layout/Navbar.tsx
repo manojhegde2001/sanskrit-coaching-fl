@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { FaBars, FaTimes, FaScroll, FaPhone, FaWhatsapp } from 'react-icons/fa';
 import { Drawer, ActionIcon } from 'rizzui';
 import Button from '@/components/ui/Button';
+import { siteData } from '@/lib/mockData';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -19,6 +20,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { site, integrations } = siteData;
+  const WA_LINK = `https://wa.me/${integrations.whatsapp.number}?text=${encodeURIComponent(integrations.whatsapp.defaultMessage)}`;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -57,10 +60,10 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-col">
                   <span className="heading-cinzel text-xl md:text-2xl font-bold text-maroon-900 tracking-tight leading-tight">
-                    Sanatanadhara
+                    {site.name}
                   </span>
                   <span className="text-[10px] md:text-xs font-semibold text-saffron-600 tracking-[0.2em] uppercase">
-                    सनातनधारा
+                    {site.scripts[0]}
                   </span>
                 </div>
               </div>
@@ -120,7 +123,7 @@ export default function Navbar() {
             <div className="flex items-center gap-2">
               <FaScroll className="text-saffron-500 text-2xl" />
               <span className="heading-cinzel text-lg font-bold text-maroon-900">
-                Sanatanadhara
+                {site.name}
               </span>
             </div>
             <ActionIcon
@@ -149,17 +152,17 @@ export default function Navbar() {
           </nav>
           
           <div className="mt-auto pt-10">
-            <p className="text-[10px] text-maroon-600/50 uppercase tracking-[0.2em] mb-4 font-bold">Connect With Prasanna</p>
+            <p className="text-[10px] text-maroon-600/50 uppercase tracking-[0.2em] mb-4 font-bold">Connect With Us</p>
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3 text-maroon-900 bg-white/50 p-4 rounded-2xl border border-amber-50">
                 <div className="w-10 h-10 rounded-xl bg-saffron-50 flex items-center justify-center text-saffron-600 shadow-sm">
                   <FaPhone className="text-sm" />
                 </div>
-                <span className="text-base font-bold tracking-tight">8073362748</span>
+                <span className="text-base font-bold tracking-tight">{site.contact.phone}</span>
               </div>
             </div>
             <Button
-              href="https://wa.me/919482111881?text=Hello%2C%20I%27m%20interested%20in%20Sanskrit%20classes.%20I%20would%20like%20to%20book%20a%20free%20demo%20session."
+              href={WA_LINK}
               variant="primary"
               fullWidth
               size="lg"
@@ -174,3 +177,4 @@ export default function Navbar() {
     </>
   );
 }
+

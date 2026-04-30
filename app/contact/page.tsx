@@ -5,18 +5,20 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import Button from '@/components/ui/Button';
 import {
   FaPhone, FaEnvelope, FaWhatsapp,
-  FaPaperPlane, FaUser, FaAt, FaCommentAlt
+  FaPaperPlane, FaUser, FaCommentAlt, FaMobileAlt
 } from 'react-icons/fa';
 import { Input, Textarea } from 'rizzui';
-
-const WA_LINK =
-  'https://wa.me/919482111881?text=Hello%2C%20I%27m%20interested%20in%20Sanskrit%20classes.%20I%20would%20like%20to%20book%20a%20free%20demo%20session.';
+import { siteData } from '@/lib/mockData';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const { site, integrations } = siteData;
+  const WA_LINK = `https://wa.me/${integrations.whatsapp.number}?text=${encodeURIComponent(integrations.whatsapp.defaultMessage)}`;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // In a real app, you'd send this to EmailJS or a backend
+    // For now, we show a success message
     setSubmitted(true);
   };
 
@@ -48,10 +50,10 @@ export default function ContactPage() {
                     <div>
                       <p className="text-[10px] text-maroon-600 font-bold tracking-widest uppercase mb-1">Phone</p>
                       <a
-                        href="tel:+918073362748"
+                        href={`tel:+91${site.contact.phone}`}
                         className="text-sm font-bold text-maroon-900 hover:text-saffron-600 transition-colors"
                       >
-                        8073362748
+                        {site.contact.phone}
                       </a>
                     </div>
                   </div>
@@ -68,7 +70,7 @@ export default function ContactPage() {
                         rel="noopener noreferrer"
                         className="text-sm font-bold text-maroon-900 hover:text-saffron-600 transition-colors"
                       >
-                        9482111881
+                        {site.contact.whatsapp}
                       </a>
                     </div>
                   </div>
@@ -80,10 +82,10 @@ export default function ContactPage() {
                     <div>
                       <p className="text-[10px] text-maroon-600 font-bold tracking-widest uppercase mb-1">Email</p>
                       <a
-                        href="mailto:harihiom02@gmail.com"
+                        href={`mailto:${site.contact.email}`}
                         className="text-sm font-bold text-maroon-900 hover:text-saffron-600 transition-colors break-all"
                       >
-                        harihiom02@gmail.com
+                        {site.contact.email}
                       </a>
                     </div>
                   </div>
@@ -92,7 +94,7 @@ export default function ContactPage() {
                     <p className="text-xs text-saffron-400 font-bold tracking-widest uppercase mb-2">Learning Mode</p>
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      <p className="text-lg font-bold">Online Only</p>
+                      <p className="text-lg font-bold">{site.mode} Only</p>
                     </div>
                   </div>
                 </div>
@@ -140,10 +142,10 @@ export default function ContactPage() {
                         required
                       />
                       <Input
-                        label="Email Address"
-                        type="email"
-                        placeholder="example@mail.com"
-                        prefix={<FaAt className="text-saffron-400" />}
+                        label="Phone Number"
+                        type="tel"
+                        placeholder="Your Phone Number"
+                        prefix={<FaMobileAlt className="text-saffron-400" />}
                         className="rizzui-input-custom"
                         inputClassName="bg-amber-50 border-amber-100 rounded-2xl focus:ring-saffron-400 py-4"
                         labelClassName="text-[10px] font-bold text-maroon-900 uppercase tracking-widest mb-2"
@@ -196,3 +198,4 @@ export default function ContactPage() {
     </main>
   );
 }
+

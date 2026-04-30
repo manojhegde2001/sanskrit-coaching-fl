@@ -6,29 +6,30 @@ import WhatsAppFloat from '@/components/ui/WhatsAppFloat';
 import ScrollToTop from '@/components/ui/ScrollToTop';
 
 export const metadata: Metadata = {
-  title: 'Sanatanadhara | Personalized Sanskrit & Kannada Learning',
-  description: 'Master Sanskrit and Kannada through flexible 1:1 sessions tailored to your pace. CBSE/State Board academic support and Shloka classes available.',
+  title: 'Sanatanadhara | Learn Sanskrit with Clarity, Culture, and Confidence',
+  description: 'Personalized one-on-one Sanskrit learning for school students and adults — from basics to advanced grammar and shlokas. CBSE and State Board focused coaching.',
   icons: {
     icon: '/icon.svg',
   },
   openGraph: {
     title: 'Sanatanadhara — Sanskrit & Kannada Classes Online',
-    description: 'Your child needs the best cultured education. Personalized Sanskrit coaching by an M.A (Acharya), B.Ed qualified teacher with 5+ years of experience.',
+    description: 'Personalized Sanskrit coaching by an M.A (Acharya), B.Ed qualified teacher with 5+ years of experience.',
     type: 'website',
     images: [{ url: '/image.png' }],
   },
   keywords: [
-    'CBSE Sanskrit',
-    'State Board Sanskrit',
-    'Kannada classes',
+    'Sanskrit classes online',
+    'CBSE Sanskrit coaching',
+    'State Board Sanskrit coaching',
+    'Kannada classes online',
     'Bhagavad Gita shlokas',
     'Sanskrit for beginners',
     'Sanskrit for adults',
     'personalized Sanskrit learning',
-    'Sanskrit teacher online',
     'Sanatanadhara',
   ],
 };
+
 
 export default function RootLayout({
   children,

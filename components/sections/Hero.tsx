@@ -2,19 +2,12 @@
 
 import Button from '@/components/ui/Button';
 import { FaCheckCircle, FaWhatsapp, FaSun } from 'react-icons/fa';
-
-const WA_LINK =
-  'https://wa.me/919482111881?text=Hello%2C%20I%27m%20interested%20in%20Sanskrit%20classes.%20I%20would%20like%20to%20book%20a%20free%20demo%20session.';
-
-const highlights = [
-  'One-on-One Personalized Learning',
-  'Flexible Timings & Custom Pace',
-  'Learn in English / Sanskrit / Telugu / Kannada',
-  'M.A (Acharya) & B.Ed Qualified Instructor',
-  'Academic Support (CBSE / State Board)',
-];
+import { siteData } from '@/lib/mockData';
 
 export default function Hero() {
+  const { site, hero, sections, integrations } = siteData;
+  const WA_LINK = `https://wa.me/${integrations.whatsapp.number}?text=${encodeURIComponent(integrations.whatsapp.defaultMessage)}`;
+
   return (
     <>
       {/* ─── MOBILE HERO ─── */}
@@ -29,22 +22,22 @@ export default function Hero() {
           <span className="inline-flex flex-col self-start mb-6">
             <span className="heading-cinzel text-xl font-bold text-maroon-900 tracking-tight leading-tight flex items-center gap-2">
               <FaSun className="text-saffron-500 text-sm" />
-              Sanatanadhara
+              {site.name}
             </span>
             <span className="text-[10px] font-bold text-saffron-600 tracking-[0.2em] uppercase mt-1">
-              सनातनधारा / ಸನಾತನಧಾರ
+              {site.scripts.join(' / ')}
             </span>
           </span>
 
           {/* Heading */}
           <h1 className="heading-cinzel text-4xl font-bold text-maroon-900 leading-[1.1] mb-4">
-            Classical Wisdom,{' '}
-            <span className="gradient-text">Personalized for You</span>
+            {hero.title.split(',')[0]}, {' '}
+            <span className="gradient-text">{hero.title.split(',')[1]}</span>
           </h1>
 
           {/* Subtext */}
           <p className="text-sm text-maroon-700/65 leading-relaxed mb-8 max-w-xs">
-            Master Sanskrit and Kannada through flexible, one-on-one sessions tailored to your goals, age, and background.
+            {hero.subtitle}
           </p>
 
           {/* CTAs */}
@@ -52,32 +45,36 @@ export default function Hero() {
             <Button
               variant="primary"
               size="lg"
-              href={WA_LINK}
+              href={hero.ctaPrimary.type === 'whatsapp' ? WA_LINK : '/contact'}
               className="w-full rounded-2xl justify-center shadow-xl shadow-saffron-500/20 py-4"
             >
-              <FaWhatsapp className="text-xl" />
-              Chat on WhatsApp
+              {hero.ctaPrimary.type === 'whatsapp' && <FaWhatsapp className="text-xl" />}
+              {hero.ctaPrimary.label}
             </Button>
             <Button
               variant="secondary"
               size="lg"
-              href="/contact"
+              href={hero.ctaSecondary.type === 'whatsapp' ? WA_LINK : '/contact'}
               className="w-full rounded-2xl justify-center py-4"
             >
-              Start Free Demo Session
+              {hero.ctaSecondary.type === 'whatsapp' && <FaWhatsapp className="text-xl" />}
+              {hero.ctaSecondary.label}
             </Button>
           </div>
 
           {/* Why Choose Us — mobile */}
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl border border-amber-100 p-6 shadow-sm">
             <p className="text-[10px] font-bold text-maroon-600/60 uppercase tracking-widest mb-4">
-              Why Sanatanadhara?
+              {sections.features.title}
             </p>
             <ul className="space-y-3">
-              {highlights.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-maroon-800 font-medium leading-tight">
+              {sections.features.items.map((item) => (
+                <li key={item.title} className="flex items-start gap-3 text-sm text-maroon-800 font-medium leading-tight">
                   <FaCheckCircle className="text-saffron-500 mt-0.5 shrink-0 text-xs" />
-                  {item}
+                  <span>
+                    <strong className="block">{item.title}</strong>
+                    <span className="text-xs text-maroon-700/60 font-normal">{item.description}</span>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -105,53 +102,57 @@ export default function Hero() {
                     <FaSun className="text-xl" />
                   </div>
                   <span className="heading-cinzel text-3xl font-bold text-maroon-900 tracking-tight leading-tight">
-                    Sanatanadhara
+                    {site.name}
                   </span>
                 </div>
                 <span className="text-base font-bold text-saffron-600 tracking-[0.3em] mt-1 ml-1">
-                  सनातनधारा / ಸನಾತನಧಾರ
+                  {site.scripts.join(' / ')}
                 </span>
               </div>
 
               <h1 className="heading-cinzel text-5xl lg:text-7xl font-bold text-maroon-900 leading-[1.1] mb-8 animate-fade-up">
-                Classical Wisdom,<br />
-                <span className="gradient-text">Personalized for You</span>
+                {hero.title.split(',')[0]}<br />
+                <span className="gradient-text">{hero.title.split(',').slice(1).join(',')}</span>
               </h1>
 
               <p className="text-xl text-maroon-700/70 leading-relaxed mb-12 max-w-xl animate-fade-up">
-                Master Sanskrit and Kannada through flexible, one-on-one sessions tailored to your pace, academic needs, and spiritual goals.
+                {hero.subtitle}
               </p>
 
               <div className="flex gap-5 mb-14 animate-fade-up">
                 <Button
                   variant="primary"
                   size="lg"
-                  href="/contact"
+                  href={hero.ctaPrimary.type === 'whatsapp' ? WA_LINK : '/contact'}
                   className="rounded-2xl shadow-2xl shadow-saffron-500/30 px-10 py-5 text-lg"
                 >
-                  Start Free Demo Session
+                  {hero.ctaPrimary.type === 'whatsapp' && <FaWhatsapp className="text-2xl" />}
+                  {hero.ctaPrimary.label}
                 </Button>
                 <Button
                   variant="secondary"
                   size="lg"
-                  href={WA_LINK}
+                  href={hero.ctaSecondary.type === 'whatsapp' ? WA_LINK : '/contact'}
                   className="rounded-2xl px-10 py-5 text-lg"
                 >
-                  <FaWhatsapp className="text-2xl" />
-                  Chat on WhatsApp
+                  {hero.ctaSecondary.type === 'whatsapp' && <FaWhatsapp className="text-2xl" />}
+                  {hero.ctaSecondary.label}
                 </Button>
               </div>
 
               {/* Why Choose Us */}
               <div className="bg-white/60 backdrop-blur-sm rounded-[2.5rem] border border-amber-100 p-8 shadow-sm animate-fade-in max-w-2xl">
                 <p className="text-[10px] font-bold text-maroon-600/60 uppercase tracking-widest mb-5">
-                  Why Sanatanadhara?
+                  {sections.features.title}
                 </p>
                 <ul className="grid grid-cols-2 gap-x-8 gap-y-4">
-                  {highlights.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-maroon-800 font-bold leading-tight">
+                  {sections.features.items.map((item) => (
+                    <li key={item.title} className="flex items-start gap-3 text-sm text-maroon-800 font-bold leading-tight">
                       <FaCheckCircle className="text-saffron-500 shrink-0 mt-0.5" />
-                      <span>{item}</span>
+                      <span>
+                        <strong className="block">{item.title}</strong>
+                        <span className="text-xs text-maroon-700/60 font-normal">{item.description}</span>
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -174,15 +175,15 @@ export default function Hero() {
               {/* Floating badges */}
               <div className="absolute -right-4 bottom-16 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-amber-100 animate-fade-up transform hover:scale-110 transition-transform duration-500">
                 <div className="text-center">
-                  <p className="text-4xl font-bold text-maroon-900 leading-none">5+</p>
+                  <p className="text-4xl font-bold text-maroon-900 leading-none">{sections.about.experience}</p>
                   <p className="text-[10px] text-saffron-600 font-bold uppercase tracking-widest mt-2">Years Exp.</p>
                 </div>
               </div>
               
               <div className="absolute -left-6 top-1/4 bg-white p-5 rounded-3xl shadow-2xl border border-amber-100 animate-fade-up delay-200 transform hover:-rotate-6 transition-transform">
                 <div className="text-center">
-                  <p className="heading-cinzel text-base font-bold text-maroon-900">M.A (Acharya)</p>
-                  <p className="text-[9px] text-saffron-600 uppercase tracking-widest font-bold mt-1">B.Ed · Sanskrit</p>
+                  <p className="heading-cinzel text-base font-bold text-maroon-900">{sections.about.qualifications[0]}</p>
+                  <p className="text-[9px] text-saffron-600 uppercase tracking-widest font-bold mt-1">{sections.about.qualifications[1]}</p>
                 </div>
               </div>
             </div>
@@ -199,3 +200,4 @@ export default function Hero() {
     </>
   );
 }
+

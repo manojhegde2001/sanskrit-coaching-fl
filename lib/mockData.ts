@@ -1,130 +1,212 @@
-import { Course, ProcessStep, FAQ, Testimonial } from './types';
+import { Course, ProcessStep, FAQ, Testimonial, SiteData } from './types';
 
-export const courses: Course[] = [
-  {
-    id: 'basic-sanskrit',
-    title: 'Basic Sanskrit Learning',
-    description: 'Build foundational knowledge in Sanskrit — from the alphabet (Varnamala) and basic vocabulary to simple sentence structure. This program is fully flexible and tailored for absolute beginners who want to start their journey into the language of the gods.',
-    duration: '1 Hour',
-    level: 'Beginner',
-    category: 'Personalized',
-    batchDetails: '1:1 Personalized | Mode: Online',
-    topics: ['Devanagari Alphabet (Varnamala)', 'Basic Vocabulary & Pronunciation', 'Simple Sentence Construction', 'Foundational Conversation Skills'],
-    price: '₹450 / hour',
-    icon: '📜',
+export const siteData: SiteData = {
+  "site": {
+    "name": "Sanatanadhara",
+    "scripts": ["सनातनधारा", "ಸನಾತನಧಾರ"],
+    "tagline": "Learn Sanskrit with Clarity, Culture, and Confidence",
+    "mode": "Online",
+    "contact": {
+      "phone": "8073362748",
+      "whatsapp": "9482111881",
+      "email": "harihiom02@gmail.com"
+    }
   },
-  {
-    id: 'advanced-sanskrit',
-    title: 'Advanced Sanskrit (Full Grammar)',
-    description: 'In-depth study of Sanskrit grammar (Vyakarana), classical literature, and advanced linguistic concepts. Ideal for serious learners seeking complete mastery, including Paninian rules and complex text analysis.',
-    duration: '1 Hour',
-    level: 'Advanced',
-    category: 'Personalized',
-    batchDetails: '1:1 Personalized | Mode: Online',
-    topics: ['Paninian Grammar (Vyakarana)', 'Classical Literature (Kavya)', 'Compound Words (Samasas) & Sandhis', 'Advanced Syntax & Composition'],
-    price: '₹600 / hour',
-    icon: '🏛️',
+  "hero": {
+    "title": "Learn Sanskrit with Clarity, Culture, and Confidence",
+    "subtitle": "Personalized one-on-one Sanskrit learning for school students and adults — from basics to advanced grammar and shlokas.",
+    "ctaPrimary": {
+      "label": "Start Free Demo",
+      "type": "whatsapp"
+    },
+    "ctaSecondary": {
+      "label": "Contact Us",
+      "type": "scroll_contact"
+    }
   },
-  {
-    id: 'basic-shlokas',
-    title: 'Shlokas & Scriptures Learning',
-    description: 'Learn to chant the Bhagavad Gita, Upanishads, and popular stotras with perfect pronunciation, rhythm (Chhandas), and a deep understanding of their spiritual significance.',
-    duration: '1 Hour',
-    level: 'Beginner',
-    category: 'Scriptures',
-    batchDetails: '1:1 Personalized | Mode: Online',
-    topics: ['Bhagavad Gita Shlokas', 'Stotras, Mantras & Prayers', 'Chanting Rules (Shiksha)', 'Meaning & Philosophical Context'],
-    price: '₹400 / hour',
-    icon: '🎼',
+  "sections": {
+    "intro": {
+      "title": "Welcome to Sanatanadhara",
+      "content": "Sanatanadhara is a personalized Sanskrit coaching platform focused on simple, structured, and meaningful learning. Suitable for school students, beginners, and advanced learners."
+    },
+    "features": {
+      "title": "Why Choose Us",
+      "items": [
+        {
+          "title": "1:1 Personalized Learning",
+          "description": "Every session is tailored to the student's level and pace."
+        },
+        {
+          "title": "Multi-language Teaching",
+          "description": "English, Sanskrit, Telugu, Kannada"
+        },
+        {
+          "title": "Academic Support",
+          "description": "CBSE and State Board focused preparation"
+        },
+        {
+          "title": "Concept Clarity",
+          "description": "Focus on understanding, not memorization"
+        },
+        {
+          "title": "Flexible Schedule",
+          "description": "Classes based on student convenience"
+        }
+      ]
+    },
+    "about": {
+      "title": "About the Teacher",
+      "experience": "5+ years",
+      "qualifications": [
+        "M.A (Acharya) in Sanskrit",
+        "B.Ed (Shiksha-sastri) in Sanskrit"
+      ],
+      "description": "Teaching Sanskrit is my passion. My goal is to make learning simple, practical, and effective for every student.",
+      "languages": ["English", "Sanskrit", "Telugu", "Kannada"]
+    },
+    "programs": {
+      "title": "Learning Programs",
+      "list": [
+        {
+          "id": "basic",
+          "name": "Basic Sanskrit Learning",
+          "description": "Strong foundation for beginners.",
+          "duration": "1 hour",
+          "mode": "Online",
+          "type": "1:1",
+          "price": 450
+        },
+        {
+          "id": "advanced",
+          "name": "Advanced Sanskrit (Full Grammar)",
+          "description": "Deep grammar and advanced concepts.",
+          "duration": "1 hour",
+          "mode": "Online",
+          "type": "1:1",
+          "price": 600
+        },
+        {
+          "id": "shlokas",
+          "name": "Shlokas & Scriptures",
+          "description": "Bhagavad Gita, stotras, chanting.",
+          "duration": "1 hour",
+          "mode": "Online",
+          "type": "1:1",
+          "price": 400
+        },
+        {
+          "id": "cbse-sanskrit",
+          "name": "CBSE Sanskrit",
+          "description": "Grade 5–12 academic support.",
+          "duration": "1 hour",
+          "mode": "Online",
+          "type": "academic",
+          "price": 500
+        },
+        {
+          "id": "state-sanskrit",
+          "name": "State Board Sanskrit",
+          "description": "Curriculum-focused coaching.",
+          "duration": "1 hour",
+          "mode": "Online",
+          "type": "academic",
+          "price": 500
+        },
+        {
+          "id": "cbse-kannada",
+          "name": "CBSE Kannada",
+          "description": "Grade 1–12 Kannada coaching.",
+          "duration": "1 hour",
+          "mode": "Online",
+          "type": "academic",
+          "price": 500
+        }
+      ]
+    },
+    "process": {
+      "title": "How It Works",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Contact",
+          "description": "Reach out via WhatsApp or form"
+        },
+        {
+          "step": 2,
+          "title": "Free Demo",
+          "description": "Attend a 15-minute demo session"
+        },
+        {
+          "step": 3,
+          "title": "Start Learning",
+          "description": "Begin personalized sessions"
+        }
+      ]
+    },
+    "audience": {
+      "title": "Who Can Join",
+      "items": [
+        "School Students (Grade 5–12)",
+        "Adults",
+        "Beginners",
+        "Advanced learners"
+      ]
+    },
+    "testimonials": [
+      {
+        "id": "t1",
+        "name": "Ananya S.",
+        "location": "Dharwad",
+        "rating": 5,
+        "text": "The 1:1 sessions have helped my son improve his Sanskrit scores significantly. The teaching style is very patient and simple to understand.",
+        "avatar": "https://i.pravatar.cc/150?u=ananya",
+        "course": "CBSE Sanskrit (Grade 8)"
+      },
+      {
+        "id": "t2",
+        "name": "Rajesh Kumar",
+        "location": "Bangalore",
+        "rating": 5,
+        "text": "I started learning Sanskrit as an adult beginner. Sanatanadhara makes it so easy to grasp complex grammar rules. Highly recommended for serious learners!",
+        "avatar": "https://i.pravatar.cc/150?u=rajesh",
+        "course": "Basic Sanskrit Learning"
+      }
+    ],
+    "cta": {
+      "primary": "Book Free Demo",
+      "secondary": "Chat on WhatsApp"
+    }
   },
-  {
-    id: 'cbse-sanskrit',
-    title: 'CBSE Sanskrit (Academic Support)',
-    description: 'Structured academic coaching specifically designed for CBSE students from Grade 5 to 12. We follow the school curriculum closely while building a strong grammatical foundation for exam excellence.',
-    duration: '1 Hour',
-    level: 'Beginner',
-    category: 'Academic',
-    batchDetails: 'Grade 5–12 | Mode: Online',
-    topics: ['Textbook (Shemushi/Ruchira) Exercises', 'Curriculum-aligned Grammar', 'Exam Strategy & Paper Solving', 'Prose & Poetry Translation'],
-    price: '₹500 / hour',
-    icon: '🎓',
-  },
-  {
-    id: 'state-board-sanskrit',
-    title: 'State Board Sanskrit (Academic)',
-    description: 'Targeted academic support for State Board students (Grade 5 to 12). This structured program focuses on curriculum mastery, building subject confidence, and achieving top scores in board examinations.',
-    duration: '1 Hour',
-    level: 'Beginner',
-    category: 'Academic',
-    batchDetails: 'Grade 5–12 | Mode: Online',
-    topics: ['State Board Curriculum Focus', 'Academic Grammar & Composition', 'Previous Year Paper Analysis', 'Literature & Translation'],
-    price: '₹500 / hour',
-    icon: '📝',
-  },
-  {
-    id: 'cbse-kannada',
-    title: 'CBSE Kannada (Academic Support)',
-    description: 'Comprehensive Kannada language coaching for CBSE students (Grade 1 to 12). We help students master reading, writing, and grammar, ensuring they excel in their school assessments.',
-    duration: '1 Hour',
-    level: 'Beginner',
-    category: 'Academic',
-    batchDetails: 'Grade 1–12 | Mode: Online',
-    topics: ['Kannada Grammar (Vyakarana)', 'Prose, Poetry & Literature', 'Creative Writing Skills', 'Exam Preparation & Practice'],
-    price: '₹500 / hour',
-    icon: '📖',
-  },
-];
+  "integrations": {
+    "whatsapp": {
+      "number": "919482111881",
+      "defaultMessage": "Hello, I am interested in Sanskrit classes. I would like to book a free demo session."
+    }
+  }
+};
 
-export const testimonials: Testimonial[] = [
-  {
-    id: 't1',
-    name: 'Ananya S.',
-    location: 'Dharwad',
-    rating: 5,
-    text: 'The 1:1 sessions have helped my son improve his Sanskrit scores significantly. The teaching style is very patient and simple to understand.',
-    avatar: 'https://i.pravatar.cc/150?u=ananya',
-    course: 'CBSE Sanskrit (Grade 8)',
-  },
-  {
-    id: 't2',
-    name: 'Rajesh Kumar',
-    location: 'Bangalore',
-    rating: 5,
-    text: 'I started learning Sanskrit as an adult beginner. Sanatanadhara makes it so easy to grasp complex grammar rules. Highly recommended for serious learners!',
-    avatar: 'https://i.pravatar.cc/150?u=rajesh',
-    course: 'Basic Sanskrit Learning',
-  },
-  {
-    id: 't3',
-    name: 'Sowmya V.',
-    location: 'Mysore',
-    rating: 5,
-    text: 'The Shloka chanting sessions are very peaceful and well-structured. My daughter has learned to chant Bhagavad Gita verses with perfect pronunciation.',
-    avatar: 'https://i.pravatar.cc/150?u=sowmya',
-    course: 'Shlokas & Scriptures',
-  },
-];
+// Map to existing constants for backward compatibility
+export const courses: Course[] = siteData.sections.programs.list.map(p => ({
+  id: p.id,
+  title: p.name,
+  description: p.description,
+  duration: p.duration,
+  level: p.id.includes('advanced') ? 'Advanced' : 'Beginner',
+  category: p.type === 'academic' ? 'Academic' : (p.id === 'shlokas' ? 'Scriptures' : 'Personalized'),
+  batchDetails: `${p.type === 'academic' ? 'Academic Support' : '1:1 Personalized'} | Mode: ${p.mode}`,
+  topics: [], // We can add some default topics or keep it empty as the new JSON doesn't specify them per program
+  price: `₹${p.price} / hour`,
+  icon: p.id === 'shlokas' ? '🎼' : (p.id.includes('kannada') ? '📖' : '📜'),
+}));
 
-export const howItWorksSteps: ProcessStep[] = [
-  {
-    id: 1,
-    title: 'Contact via WhatsApp or Form',
-    description: 'Reach out through WhatsApp or fill in the contact form. We will respond promptly to understand your learning goals and background.',
-    icon: '📱',
-  },
-  {
-    id: 2,
-    title: 'Attend Free 15-Minute Demo Session',
-    description: 'Experience our personalized teaching style with no commitment. A short introductory session to see if we are the right fit for your needs.',
-    icon: '🎯',
-  },
-  {
-    id: 3,
-    title: 'Start Learning',
-    description: 'Once you are comfortable, we finalize the schedule and begin your personalized Sanskrit or Kannada learning journey at your own pace.',
-    icon: '🎓',
-  },
-];
+export const testimonials: Testimonial[] = siteData.sections.testimonials;
+
+export const howItWorksSteps: ProcessStep[] = siteData.sections.process.steps.map(s => ({
+  id: s.step,
+  title: s.title,
+  description: s.description,
+  icon: s.step === 1 ? '📱' : (s.step === 2 ? '🎯' : '🎓'),
+}));
 
 export const faqs: FAQ[] = [
   {
@@ -150,6 +232,7 @@ export const faqs: FAQ[] = [
   {
     id: 'faq5',
     question: 'What are the fees?',
-    answer: 'Fees vary by program: Basic Sanskrit ₹450/hr, Advanced Sanskrit ₹600/hr, Shlokas ₹400/hr, CBSE/State Board Sanskrit ₹500/hr, CBSE Kannada ₹500/hr. A free 15-minute demo is available before you commit.',
+    answer: 'Fees vary by program. Basic Sanskrit ₹450/hr, Advanced Sanskrit ₹600/hr, Shlokas ₹400/hr, CBSE/State Board Sanskrit ₹500/hr, CBSE Kannada ₹500/hr. A free 15-minute demo is available before you commit.',
   },
 ];
+

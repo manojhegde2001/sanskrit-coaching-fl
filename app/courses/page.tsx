@@ -3,13 +3,13 @@
 import SectionHeader from '@/components/ui/SectionHeader';
 import Button from '@/components/ui/Button';
 import CTABanner from '@/components/sections/CTABanner';
-import { courses } from '@/lib/mockData';
+import { siteData } from '@/lib/mockData';
 import { FaWhatsapp, FaCheckCircle, FaClock, FaLaptop, FaRupeeSign, FaUserFriends, FaGraduationCap, FaOm } from 'react-icons/fa';
 
-const WA_LINK =
-  'https://wa.me/919482111881?text=Hello%2C%20I%27m%20interested%20in%20Sanskrit%20classes.%20I%20would%20like%20to%20book%20a%20free%20demo%20session.';
-
 export default function CoursesPage() {
+  const { sections, integrations } = siteData;
+  const WA_LINK = `https://wa.me/${integrations.whatsapp.number}?text=${encodeURIComponent(integrations.whatsapp.defaultMessage)}`;
+
   return (
     <main className="bg-cream page-container min-h-screen">
       {/* Page Header */}
@@ -18,8 +18,8 @@ export default function CoursesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeader
             eyebrow="Our Offerings"
-            title="Learning"
-            highlight="Programs"
+            title={sections.programs.title.split(' ')[0]}
+            highlight={sections.programs.title.split(' ')[1]}
             subtitle="Personalized Sanskrit and Kannada coaching tailored to your needs. Choose from flexible 1:1 sessions or structured academic support."
             align="center"
           />
@@ -51,18 +51,20 @@ export default function CoursesPage() {
       <section className="pb-20 bg-white rounded-t-[3rem] shadow-2xl relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-14">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {courses.map((course) => (
+            {sections.programs.list.map((program) => (
               <div
-                key={course.id}
+                key={program.id}
                 className="group flex flex-col bg-cream rounded-[2rem] border border-amber-100 hover:border-amber-200 hover:shadow-2xl hover:shadow-saffron-500/10 hover:-translate-y-2 transition-all duration-500 overflow-hidden"
               >
                 {/* Icon Header */}
                 <div className="bg-gradient-to-br from-saffron-50 to-amber-50 px-8 py-7 flex items-center justify-between border-b border-amber-100">
-                  <span className="text-5xl transform group-hover:scale-110 transition-transform duration-500">{course.icon}</span>
+                  <span className="text-5xl transform group-hover:scale-110 transition-transform duration-500">
+                    {program.id === 'shlokas' ? '🎼' : (program.id.includes('kannada') ? '📖' : '📜')}
+                  </span>
                   <div className="text-right">
                     <div className="flex items-center justify-end gap-1 text-2xl font-bold text-maroon-900 heading-cinzel">
                       <FaRupeeSign className="text-base text-saffron-600" />
-                      <span>{course.price.replace('₹', '').replace(' / hour', '')}</span>
+                      <span>{program.price}</span>
                     </div>
                     <p className="text-[10px] text-maroon-600/50 font-bold uppercase tracking-widest">per hour</p>
                   </div>
@@ -73,54 +75,44 @@ export default function CoursesPage() {
                   {/* Category Badge */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ${
-                      course.category === 'Academic'
+                      program.type === 'academic'
                         ? 'bg-blue-100 text-blue-700'
-                        : course.category === 'Scriptures'
+                        : program.id === 'shlokas'
                           ? 'bg-amber-100 text-amber-700'
                           : 'bg-emerald-100 text-emerald-700'
                     }`}>
-                      {course.category}
+                      {program.type === 'academic' ? 'Academic' : (program.id === 'shlokas' ? 'Scriptures' : 'Personalized')}
                     </span>
                     <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-maroon-50 text-maroon-700">
-                      {course.level}
+                      {program.id.includes('advanced') ? 'Advanced' : 'Beginner'}
                     </span>
                   </div>
 
                   <h2 className="heading-cinzel text-lg font-bold text-maroon-900 mb-3 leading-snug">
-                    {course.title}
+                    {program.name}
                   </h2>
                   <p className="text-sm text-maroon-700/65 leading-relaxed mb-5 min-h-[4.5rem]">
-                    {course.description}
+                    {program.description}
                   </p>
-
-                  {/* Topics */}
-                  <ul className="space-y-2 mb-8">
-                    {course.topics.map((topic) => (
-                      <li key={topic} className="flex items-start gap-2.5 text-sm text-maroon-800 font-medium leading-tight">
-                        <FaCheckCircle className="text-saffron-500 shrink-0 text-xs mt-0.5" />
-                        {topic}
-                      </li>
-                    ))}
-                  </ul>
 
                   {/* Meta */}
                   <div className="flex items-center gap-4 text-[11px] text-maroon-600/55 font-semibold uppercase tracking-wide mt-auto mb-6 pt-4 border-t border-amber-100">
                     <span className="flex items-center gap-1.5">
                       <FaClock className="text-saffron-400" />
-                      {course.duration}
+                      {program.duration}
                     </span>
                     <span className="flex items-center gap-1.5">
                       <FaLaptop className="text-saffron-400" />
-                      Online
+                      {program.mode}
                     </span>
                     <span className="flex items-center gap-1.5">
                       <FaUserFriends className="text-saffron-400" />
-                      1:1
+                      {program.type === 'academic' ? 'Academic' : '1:1'}
                     </span>
                   </div>
 
                   <Button
-                    href={`${WA_LINK}&course=${encodeURIComponent(course.title)}`}
+                    href={`${WA_LINK}&course=${encodeURIComponent(program.name)}`}
                     variant="secondary"
                     fullWidth
                     className="rounded-xl py-4"
@@ -159,17 +151,10 @@ export default function CoursesPage() {
                 </div>
                 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full lg:w-auto">
-                  {[
-                    { label: 'Basic Sanskrit', price: '₹450' },
-                    { label: 'Advanced Sanskrit', price: '₹600' },
-                    { label: 'Shlokas', price: '₹400' },
-                    { label: 'CBSE Sanskrit', price: '₹500' },
-                    { label: 'State Board', price: '₹500' },
-                    { label: 'CBSE Kannada', price: '₹500' },
-                  ].map((item) => (
-                    <div key={item.label} className="bg-white/5 rounded-2xl p-5 border border-white/10 text-center hover:bg-white/10 transition-colors">
-                      <p className="heading-cinzel text-2xl font-bold text-saffron-400">{item.price}</p>
-                      <p className="text-[10px] text-amber-200/50 font-bold uppercase tracking-wider mt-1">{item.label}</p>
+                  {sections.programs.list.map((item) => (
+                    <div key={item.id} className="bg-white/5 rounded-2xl p-5 border border-white/10 text-center hover:bg-white/10 transition-colors">
+                      <p className="heading-cinzel text-2xl font-bold text-saffron-400">₹{item.price}</p>
+                      <p className="text-[10px] text-amber-200/50 font-bold uppercase tracking-wider mt-1">{item.name}</p>
                     </div>
                   ))}
                 </div>
@@ -203,3 +188,4 @@ export default function CoursesPage() {
     </main>
   );
 }
+

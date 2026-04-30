@@ -1,11 +1,13 @@
 'use client';
+
 import Button from '@/components/ui/Button';
 import { FaWhatsapp, FaArrowRight } from 'react-icons/fa';
-
-const WA_LINK =
-  'https://wa.me/919482111881?text=Hello%2C%20I%27m%20interested%20in%20Sanskrit%20classes.%20I%20would%20like%20to%20book%20a%20free%20demo%20session.';
+import { siteData } from '@/lib/mockData';
 
 export default function CTABanner() {
+  const { sections, integrations } = siteData;
+  const WA_LINK = `https://wa.me/${integrations.whatsapp.number}?text=${encodeURIComponent(integrations.whatsapp.defaultMessage)}`;
+
   return (
     <section className="relative py-20 overflow-hidden">
       {/* Gradient background */}
@@ -22,7 +24,7 @@ export default function CTABanner() {
           Begin Your Journey Today
         </p>
         <h2 className="heading-cinzel text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
-          Start your Sanskrit journey today
+          {sections.cta.primary}
         </h2>
         <p className="text-white/80 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
           Book your free demo session now — no commitment, just a simple 15-minute introduction to get started.
@@ -35,7 +37,7 @@ export default function CTABanner() {
             className="border-white/80 text-white hover:bg-white hover:text-saffron-600"
           >
             <FaWhatsapp className="text-lg" />
-            Chat on WhatsApp
+            {sections.cta.secondary}
           </Button>
           <Button
             variant="ghost"
@@ -51,3 +53,4 @@ export default function CTABanner() {
     </section>
   );
 }
+

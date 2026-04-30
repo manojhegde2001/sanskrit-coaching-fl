@@ -1,28 +1,25 @@
 import Link from 'next/link';
 import { FaWhatsapp, FaPhone, FaEnvelope, FaScroll } from 'react-icons/fa';
-
-const WA_LINK =
-  'https://wa.me/919482111881?text=Hello%2C%20I%27m%20interested%20in%20Sanskrit%20classes.%20I%20would%20like%20to%20book%20a%20free%20demo%20session.';
-
-const footerLinks = {
-  Pages: [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/courses', label: 'Programs' },
-    { href: '/how-it-works', label: 'How It Works' },
-    { href: '/contact', label: 'Contact' },
-  ],
-  Programs: [
-    { href: '/courses', label: 'Basic Sanskrit Learning' },
-    { href: '/courses', label: 'Advanced Sanskrit (Full Grammar)' },
-    { href: '/courses', label: 'Basic Sanskrit Shlokas' },
-    { href: '/courses', label: 'CBSE Sanskrit Class' },
-    { href: '/courses', label: 'State Board Sanskrit Class' },
-    { href: '/courses', label: 'CBSE Kannada Class' },
-  ],
-};
+import { siteData } from '@/lib/mockData';
 
 export default function Footer() {
+  const { site, integrations } = siteData;
+  const WA_LINK = `https://wa.me/${integrations.whatsapp.number}?text=${encodeURIComponent(integrations.whatsapp.defaultMessage)}`;
+
+  const footerLinks = {
+    Pages: [
+      { href: '/', label: 'Home' },
+      { href: '/about', label: 'About' },
+      { href: '/courses', label: 'Programs' },
+      { href: '/how-it-works', label: 'How It Works' },
+      { href: '/contact', label: 'Contact' },
+    ],
+    Programs: siteData.sections.programs.list.map(p => ({
+      href: '/courses',
+      label: p.name
+    })),
+  };
+
   return (
     <footer className="bg-maroon-900 text-amber-100">
       {/* Top section */}
@@ -37,15 +34,15 @@ export default function Footer() {
                     <FaScroll className="text-lg" />
                   </div>
                   <span className="heading-cinzel text-2xl font-bold text-white tracking-tight">
-                    Sanatanadhara
+                    {site.name}
                   </span>
                 </div>
                 <span className="text-xs font-semibold text-saffron-400 tracking-[0.1em] border-b border-saffron-400/20 pb-0.5 inline-block uppercase">
-                  सनातनधारा / ಸನಾತನಧಾರ
+                  {site.scripts.join(' / ')}
                 </span>
               </Link>
               <p className="text-amber-200/60 text-sm leading-relaxed max-w-sm">
-                Personalized Sanskrit learning through flexible one-on-one sessions tailored to your pace, goals, and background.
+                {site.tagline}
               </p>
             </div>
             {/* WhatsApp link */}
@@ -99,20 +96,20 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <FaPhone className="text-saffron-400 mt-0.5 shrink-0" />
-                <a href="tel:+918073362748" className="text-sm text-amber-200/70 hover:text-saffron-400 transition-colors">
-                  8073362748
+                <a href={`tel:+91${site.contact.phone}`} className="text-sm text-amber-200/70 hover:text-saffron-400 transition-colors">
+                  {site.contact.phone}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <FaWhatsapp className="text-saffron-400 mt-0.5 shrink-0" />
                 <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="text-sm text-amber-200/70 hover:text-saffron-400 transition-colors">
-                  9482111881
+                  {site.contact.whatsapp}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <FaEnvelope className="text-saffron-400 mt-0.5 shrink-0" />
-                <a href="mailto:harihiom02@gmail.com" className="text-sm text-amber-200/70 hover:text-saffron-400 transition-colors break-all">
-                  harihiom02@gmail.com
+                <a href={`mailto:${site.contact.email}`} className="text-sm text-amber-200/70 hover:text-saffron-400 transition-colors break-all">
+                  {site.contact.email}
                 </a>
               </li>
             </ul>
@@ -124,7 +121,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-amber-200/40">
-            © {new Date().getFullYear()} Sanatanadhara. All rights reserved.
+            © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
           <p className="text-xs text-amber-200/40 text-center">
             ॐ तत् सत्
@@ -134,3 +131,4 @@ export default function Footer() {
     </footer>
   );
 }
+

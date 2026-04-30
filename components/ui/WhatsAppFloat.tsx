@@ -1,10 +1,12 @@
 'use client';
-import { FaWhatsapp } from 'react-icons/fa';
 
-const WA_LINK =
-  'https://wa.me/919482111881?text=Hello%2C%20I%27m%20interested%20in%20Sanskrit%20classes.%20I%20would%20like%20to%20book%20a%20free%20demo%20session.';
+import { FaWhatsapp } from 'react-icons/fa';
+import { siteData } from '@/lib/mockData';
 
 export default function WhatsAppFloat() {
+  const { integrations } = siteData;
+  const WA_LINK = `https://wa.me/${integrations.whatsapp.number}?text=${encodeURIComponent(integrations.whatsapp.defaultMessage)}`;
+
   return (
     <a
       href={WA_LINK}
@@ -20,3 +22,4 @@ export default function WhatsAppFloat() {
     </a>
   );
 }
+
