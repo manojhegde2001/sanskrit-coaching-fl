@@ -16,6 +16,7 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
+
 export default function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -91,7 +92,6 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Desktop CTA */}
             <div className="hidden lg:block">
               <Button href="/contact" variant="primary" size="sm">
                 Book Free Session
@@ -134,6 +134,7 @@ export default function Navbar() {
               <FaTimes className="w-6 h-6" />
             </ActionIcon>
           </div>
+
           
           <nav className="flex flex-col gap-2">
             {navLinks.map((link) => (

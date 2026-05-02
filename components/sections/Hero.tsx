@@ -35,7 +35,7 @@ export default function Hero() {
             <div className="flex flex-col">
               <div className="flex items-center gap-2 mb-1">
                 <span className="px-2 py-0.5 rounded-md bg-saffron-100 text-saffron-700 text-[9px] font-bold uppercase tracking-wider">
-                  Qualified Teacher
+                 Prasanna Hegde
                 </span>
               </div>
               <span className="heading-cinzel text-sm font-bold text-maroon-900 leading-tight">

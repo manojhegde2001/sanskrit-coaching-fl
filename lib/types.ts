@@ -36,7 +36,10 @@ export interface Program {
   duration: string;
   mode: string;
   type: string;
-  price: number;
+  price: {
+    inr: number;
+    usd: number;
+  };
 }
 
 export interface Step {

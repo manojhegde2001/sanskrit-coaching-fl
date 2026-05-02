@@ -14,7 +14,7 @@ export const siteData: SiteData = {
   },
   "hero": {
     "title": "Learn Sanskrit with Clarity, Culture, and Confidence",
-    "subtitle": "Personalized one-on-one Sanskrit learning for school students and adults — from basics to advanced grammar and shlokas.",
+    "subtitle": "Personalized one-on-one Sanskrit learning for school students and adults from basics to advanced grammar and shlokas.",
     "ctaPrimary": {
       "label": "Start Free Demo",
       "type": "whatsapp"
@@ -74,7 +74,7 @@ export const siteData: SiteData = {
           "duration": "1 hour",
           "mode": "Online",
           "type": "1:1",
-          "price": 450
+          "price": { "inr": 450, "usd": 7 }
         },
         {
           "id": "advanced",
@@ -83,7 +83,7 @@ export const siteData: SiteData = {
           "duration": "1 hour",
           "mode": "Online",
           "type": "1:1",
-          "price": 600
+          "price": { "inr": 600, "usd": 10 }
         },
         {
           "id": "shlokas",
@@ -92,7 +92,7 @@ export const siteData: SiteData = {
           "duration": "1 hour",
           "mode": "Online",
           "type": "1:1",
-          "price": 400
+          "price": { "inr": 400, "usd": 6 }
         },
         {
           "id": "cbse-sanskrit",
@@ -101,7 +101,7 @@ export const siteData: SiteData = {
           "duration": "1 hour",
           "mode": "Online",
           "type": "academic",
-          "price": 500
+          "price": { "inr": 500, "usd": 8 }
         },
         {
           "id": "state-sanskrit",
@@ -110,7 +110,7 @@ export const siteData: SiteData = {
           "duration": "1 hour",
           "mode": "Online",
           "type": "academic",
-          "price": 500
+          "price": { "inr": 500, "usd": 8 }
         },
         {
           "id": "cbse-kannada",
@@ -119,7 +119,7 @@ export const siteData: SiteData = {
           "duration": "1 hour",
           "mode": "Online",
           "type": "academic",
-          "price": 500
+          "price": { "inr": 500, "usd": 8 }
         }
       ]
     },
@@ -180,7 +180,7 @@ export const siteData: SiteData = {
   "integrations": {
     "whatsapp": {
       "number": "919482111881",
-      "defaultMessage": "Hello, I am interested in Sanskrit classes. I would like to book a free demo session."
+      "defaultMessage": "Hari Om, I am interested in Sanskrit classes. I would like to book a free demo session."
     }
   }
 };
@@ -195,7 +195,7 @@ export const courses: Course[] = siteData.sections.programs.list.map(p => ({
   category: p.type === 'academic' ? 'Academic' : (p.id === 'shlokas' ? 'Scriptures' : 'Personalized'),
   batchDetails: `${p.type === 'academic' ? 'Academic Support' : '1:1 Personalized'} | Mode: ${p.mode}`,
   topics: [], // We can add some default topics or keep it empty as the new JSON doesn't specify them per program
-  price: `₹${p.price} / hour`,
+  price: `₹${p.price.inr} / hour`, // Defaulting to INR for backward compatibility
   icon: p.id === 'shlokas' ? '🎼' : (p.id.includes('kannada') ? '📖' : '📜'),
 }));
 
@@ -227,12 +227,12 @@ export const faqs: FAQ[] = [
   {
     id: 'faq4',
     question: 'How are the sessions conducted?',
-    answer: 'All sessions are conducted live online — one-on-one, interactive, and fully personalized to your pace and goals.',
+    answer: 'All sessions are conducted live online one-on-one, interactive, and fully personalized to your pace and goals.',
   },
   {
     id: 'faq5',
     question: 'What are the fees?',
-    answer: 'Fees vary by program. Basic Sanskrit ₹450/hr, Advanced Sanskrit ₹600/hr, Shlokas ₹400/hr, CBSE/State Board Sanskrit ₹500/hr, CBSE Kannada ₹500/hr. A free 15-minute demo is available before you commit.',
+    answer: 'Fees vary by program. Detailed pricing for each course is listed in both INR and USD in our Programs section. A free 15-minute demo is available before you commit.',
   },
 ];
 

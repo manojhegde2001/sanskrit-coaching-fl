@@ -192,7 +192,7 @@ export default function AboutPage() {
             eyebrow="Target Audience"
             title="Who Can"
             highlight="Join?"
-            subtitle="Sanatanadhara welcomes everyone — school students and adults, beginners and advanced learners."
+            subtitle="Sanatanadhara welcomes everyone school students and adults, beginners and advanced learners."
             align="center"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">

@@ -7,7 +7,7 @@ import ScrollToTop from '@/components/ui/ScrollToTop';
 
 export const metadata: Metadata = {
   title: 'Sanatanadhara | Learn Sanskrit with Clarity, Culture, and Confidence',
-  description: 'Personalized one-on-one Sanskrit learning for school students and adults — from basics to advanced grammar and shlokas. CBSE and State Board focused coaching.',
+  description: 'Personalized one-on-one Sanskrit learning for school students and adults from basics to advanced grammar and shlokas. CBSE and State Board focused coaching.',
   icons: {
     icon: '/icon.svg',
   },
@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     'Sanatanadhara',
   ],
 };
+
 
 
 export default function RootLayout({

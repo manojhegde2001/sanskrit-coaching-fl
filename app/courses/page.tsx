@@ -63,8 +63,9 @@ export default function CoursesPage() {
                   </span>
                   <div className="text-right">
                     <div className="flex items-center justify-end gap-1 text-2xl font-bold text-maroon-900 heading-cinzel">
-                      <FaRupeeSign className="text-base text-saffron-600" />
-                      <span>{program.price}</span>
+                      <span>₹{program.price.inr}</span>
+                      <span className="text-maroon-300 mx-1">/</span>
+                      <span className="text-saffron-600 text-xl">${program.price.usd}</span>
                     </div>
                     <p className="text-[10px] text-maroon-600/50 font-bold uppercase tracking-widest">per hour</p>
                   </div>
@@ -153,7 +154,7 @@ export default function CoursesPage() {
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full lg:w-auto">
                   {sections.programs.list.map((item) => (
                     <div key={item.id} className="bg-white/5 rounded-2xl p-5 border border-white/10 text-center hover:bg-white/10 transition-colors">
-                      <p className="heading-cinzel text-2xl font-bold text-saffron-400">₹{item.price}</p>
+                      <p className="heading-cinzel text-xl font-bold text-saffron-400">₹{item.price.inr} <span className="text-amber-200/30 text-base">/</span> ${item.price.usd}</p>
                       <p className="text-[10px] text-amber-200/50 font-bold uppercase tracking-wider mt-1">{item.name}</p>
                     </div>
                   ))}

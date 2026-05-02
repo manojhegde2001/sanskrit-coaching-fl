@@ -45,8 +45,9 @@ export default function CoursesPreview() {
                 </span>
                 <div className="text-right">
                   <div className="flex items-center justify-end gap-0.5 heading-cinzel text-xl font-bold text-maroon-900">
-                    <FaRupeeSign className="text-sm text-saffron-600" />
-                    <span>{program.price}</span>
+                    <span>₹{program.price.inr}</span>
+                    <span className="text-maroon-200 mx-0.5">/</span>
+                    <span className="text-saffron-600 text-lg">${program.price.usd}</span>
                   </div>
                   <p className="text-[9px] text-maroon-600/50 font-bold uppercase tracking-widest">/hour</p>
                 </div>
