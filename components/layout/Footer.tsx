@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaWhatsapp, FaPhone, FaEnvelope, FaScroll } from 'react-icons/fa';
+import { FaWhatsapp, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { siteData } from '@/lib/mockData';
 
 export default function Footer() {
@@ -30,8 +30,8 @@ export default function Footer() {
             <div className="space-y-6">
               <Link href="/" className="inline-flex flex-col">
                 <div className="flex items-center gap-1.5 mb-1">
-                  <div className="w-8 h-8 rounded-lg bg-maroon-800 flex items-center justify-center text-saffron-500 shadow-xl shadow-black/20">
-                    <FaScroll className="text-lg" />
+                  <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center shadow-lg shadow-black/20">
+                    <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
                   </div>
                   <span className="heading-cinzel text-2xl font-bold text-white tracking-tight">
                     {site.name}

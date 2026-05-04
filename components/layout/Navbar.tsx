@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { FaBars, FaTimes, FaScroll, FaPhone, FaWhatsapp } from 'react-icons/fa';
+import { FaBars, FaTimes, FaPhone, FaWhatsapp } from 'react-icons/fa';
 import { Drawer, ActionIcon } from 'rizzui';
 import Button from '@/components/ui/Button';
 import { siteData } from '@/lib/mockData';
@@ -56,8 +56,8 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
               <div className="flex items-center gap-2 md:gap-3">
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-maroon-900 flex items-center justify-center text-saffron-500 shadow-lg transform group-hover:rotate-6 transition-transform duration-300">
-                  <FaScroll className="text-xl md:text-2xl" />
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl overflow-hidden flex items-center justify-center shadow-lg transform group-hover:scale-105 transition-transform duration-300">
+                  <img src="/logo.png" alt="Sanatana Dhara Logo" className="w-full h-full object-contain" />
                 </div>
                 <div className="flex flex-col">
                   <span className="heading-cinzel text-xl md:text-2xl font-bold text-maroon-900 tracking-tight leading-tight">
@@ -120,8 +120,10 @@ export default function Navbar() {
       >
         <div className="p-6 h-full flex flex-col bg-cream">
           <div className="flex items-center justify-between mb-10">
-            <div className="flex items-center gap-2">
-              <FaScroll className="text-saffron-500 text-2xl" />
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-md">
+                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+              </div>
               <span className="heading-cinzel text-lg font-bold text-maroon-900">
                 {site.name}
               </span>

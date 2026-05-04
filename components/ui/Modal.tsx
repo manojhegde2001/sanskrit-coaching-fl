@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal as RizzModal, ActionIcon } from 'rizzui';
-import { FaTimes, FaCheckCircle, FaScroll } from 'react-icons/fa';
+import { FaTimes, FaCheckCircle } from 'react-icons/fa';
 import Button from './Button';
 
 interface ModalProps {
@@ -44,7 +44,9 @@ export default function Modal({
             <div className="w-20 h-20 rounded-3xl bg-maroon-900 flex items-center justify-center mx-auto mb-8 shadow-xl rotate-3">
               <FaCheckCircle className="text-saffron-500 text-4xl" />
             </div>
-            <FaScroll className="text-maroon-900/20 text-3xl mx-auto mb-4" />
+            <div className="w-12 h-12 mx-auto mb-4 opacity-20">
+              <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+            </div>
             <h2 className="heading-cinzel text-3xl font-bold text-maroon-900 mb-4">
               Registration Received!
             </h2>
