@@ -49,12 +49,12 @@ export default function Hero() {
 
 
           {/* Heading */}
-          <h1 className="heading-cinzel text-[2.75rem] font-bold text-maroon-900 leading-[1.05] mb-6 tracking-tight">
+          <div role="heading" aria-level={1} className="heading-cinzel text-[2.75rem] font-bold text-maroon-900 leading-[1.05] mb-6 tracking-tight">
             {hero.title.split('with')[0]}
             <span className="block mt-1 bg-saffron-gradient bg-clip-text text-transparent">
               with {hero.title.split('with')[1]}
             </span>
-          </h1>
+          </div>
 
           {/* Subtext */}
           <p className="text-base text-maroon-700/70 leading-relaxed mb-10">

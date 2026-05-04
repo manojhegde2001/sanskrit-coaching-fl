@@ -6,17 +6,12 @@ import WhatsAppFloat from '@/components/ui/WhatsAppFloat';
 import ScrollToTop from '@/components/ui/ScrollToTop';
 
 export const metadata: Metadata = {
-  title: 'Sanatanadhara | Learn Sanskrit with Clarity, Culture, and Confidence',
+  metadataBase: new URL('https://sanatanadhara.in'),
+  title: {
+    default: 'Sanatanadhara | Learn Sanskrit with Clarity, Culture, and Confidence',
+    template: '%s | Sanatanadhara',
+  },
   description: 'Personalized one-on-one Sanskrit learning for school students and adults from basics to advanced grammar and shlokas. CBSE and State Board focused coaching.',
-  icons: {
-    icon: '/icon.svg',
-  },
-  openGraph: {
-    title: 'Sanatanadhara — Sanskrit & Kannada Classes Online',
-    description: 'Personalized Sanskrit coaching by an M.A (Acharya), B.Ed qualified teacher with 5+ years of experience.',
-    type: 'website',
-    images: [{ url: '/image.png' }],
-  },
   keywords: [
     'Sanskrit classes online',
     'CBSE Sanskrit coaching',
@@ -27,7 +22,52 @@ export const metadata: Metadata = {
     'Sanskrit for adults',
     'personalized Sanskrit learning',
     'Sanatanadhara',
+    'Prasanna Hegde Sanskrit',
   ],
+  authors: [{ name: 'Prasanna Hegde' }],
+  creator: 'Prasanna Hegde',
+  publisher: 'Sanatanadhara',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
+  openGraph: {
+    title: 'Sanatanadhara — Sanskrit & Kannada Classes Online',
+    description: 'Personalized Sanskrit coaching by an M.A (Acharya), B.Ed qualified teacher with 5+ years of experience.',
+    url: 'https://sanatanadhara.in',
+    siteName: 'Sanatanadhara',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Sanatanadhara — Sanskrit Learning',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sanatanadhara — Sanskrit & Kannada Classes Online',
+    description: 'Personalized Sanskrit coaching by an M.A (Acharya), B.Ed qualified teacher with 5+ years of experience.',
+    images: ['/image.png'],
+  },
+  alternates: {
+    canonical: 'https://sanatanadhara.in',
+  },
 };
 
 

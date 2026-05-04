@@ -119,13 +119,25 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-amber-200/40">
-            © {new Date().getFullYear()} {site.name}. All rights reserved.
-          </p>
-          <p className="text-xs text-amber-200/40 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="text-center sm:text-left">
+            <p className="text-xs text-amber-200/40">
+              © {new Date().getFullYear()} {site.name}. All rights reserved.
+            </p>
+            <p className="text-[10px] text-amber-200/20 uppercase tracking-[0.2em] mt-1">
+              Online Sanskrit & Kannada Coaching · Personalized 1:1 Sessions
+            </p>
+          </div>
+          
+          <p className="text-xs text-amber-200/40 text-center font-serif italic">
             ॐ तत् सत्
           </p>
+
+          <div className="flex items-center gap-4">
+            <Link href="/sitemap.xml" className="text-[10px] text-amber-200/30 hover:text-saffron-400 uppercase tracking-widest transition-colors">
+              Sitemap
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
