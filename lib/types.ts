@@ -37,8 +37,8 @@ export interface Program {
   mode: string;
   type: string;
   price: {
-    inr: number;
-    usd: number;
+    inr: string | number;
+    usd: string | number;
   };
 }
 

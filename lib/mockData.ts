@@ -59,7 +59,9 @@ export const siteData: SiteData = {
       "experience": "5+ years",
       "qualifications": [
         "M.A (Acharya) in Sanskrit",
-        "B.Ed (Shiksha-sastri) in Sanskrit"
+        "B.Ed (Shiksha-sastri) in Sanskrit",
+        "KARTET certified",
+        "Yoga M.Sc"
       ],
       "description": "Teaching Sanskrit is my passion. My goal is to make learning simple, practical, and effective for every student.",
       "languages": ["English", "Sanskrit", "Telugu", "Kannada"]
@@ -74,7 +76,7 @@ export const siteData: SiteData = {
           "duration": "1 hour",
           "mode": "Online",
           "type": "1:1",
-          "price": { "inr": 450, "usd": 7 }
+          "price": { "inr": "400 - 700", "usd": "6 - 10" }
         },
         {
           "id": "advanced",
@@ -83,16 +85,16 @@ export const siteData: SiteData = {
           "duration": "1 hour",
           "mode": "Online",
           "type": "1:1",
-          "price": { "inr": 600, "usd": 10 }
+          "price": { "inr": "500 - 800", "usd": "8 - 12" }
         },
         {
           "id": "shlokas",
           "name": "Shlokas & Scriptures",
-          "description": "Bhagavad Gita, stotras, chanting.",
+          "description": "Bhagavad Gita, Stotras, Upanishads, Vishnu Sahasranama, and Vedic chanting.",
           "duration": "1 hour",
           "mode": "Online",
           "type": "1:1",
-          "price": { "inr": 400, "usd": 6 }
+          "price": { "inr": "400 - 500", "usd": "6 - 8" }
         },
         {
           "id": "cbse-sanskrit",
@@ -101,7 +103,7 @@ export const siteData: SiteData = {
           "duration": "1 hour",
           "mode": "Online",
           "type": "academic",
-          "price": { "inr": 500, "usd": 8 }
+          "price": { "inr": "400 - 600", "usd": "6 - 9" }
         },
         {
           "id": "state-sanskrit",
@@ -110,7 +112,7 @@ export const siteData: SiteData = {
           "duration": "1 hour",
           "mode": "Online",
           "type": "academic",
-          "price": { "inr": 500, "usd": 8 }
+          "price": { "inr": "400 - 600", "usd": "6 - 9" }
         },
         {
           "id": "cbse-kannada",
@@ -119,7 +121,7 @@ export const siteData: SiteData = {
           "duration": "1 hour",
           "mode": "Online",
           "type": "academic",
-          "price": { "inr": 500, "usd": 8 }
+          "price": { "inr": "400 - 600", "usd": "6 - 9" }
         }
       ]
     },
